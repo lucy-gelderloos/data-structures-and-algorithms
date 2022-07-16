@@ -1,5 +1,6 @@
 'use strict';
 
+// eslint-disable-next-line quotes, no-unused-vars
 const { text } = require("cheerio/lib/api/manipulation");
 
 /* ------------------------------------------------------------------------------------------------
