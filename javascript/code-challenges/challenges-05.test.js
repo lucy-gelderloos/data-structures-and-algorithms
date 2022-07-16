@@ -246,7 +246,16 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  let numPrimes = arr.reduce(function(start,el){
+    if(isPrime(el)){
+      start = start + 1;
+      return start;
+    }
+    else{
+      return start;
+    }
+  }, 0);
+  return numPrimes;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -289,7 +298,19 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  let selectedStat = arr.reduce(function(acc,el){
+    if(el.stat.name === statName){
+      acc.stat.url = el.stat.url;
+      acc.stat.name = el.stat.name;
+      acc.effort = el.effort;
+      acc.baseStat = el.baseStat;
+      return acc;
+    }
+    else{
+      return acc;
+    }
+  }, {stat:{url:null,name:null},effort:null,baseStat:null});
+  return selectedStat;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -303,7 +324,18 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  let aNamesArr = arr.filter(el => el.name.includes('a'));
+
+  let childNamesArr = aNamesArr.reduce(function(acc,el){
+    if(el.children === undefined){
+      return acc;
+    }
+    else{
+      acc = [...acc,...el.children];
+      return acc;
+    }
+  }, []);
+  return childNamesArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
