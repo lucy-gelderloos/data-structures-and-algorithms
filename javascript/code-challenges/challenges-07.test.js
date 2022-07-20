@@ -67,7 +67,7 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  for(let i = 0; i < str.length; i++){
+  for(let i = 0; i < str.length + 1; i++){
     let sliced = str.slice(i);
     result.push(sliced);
   }
