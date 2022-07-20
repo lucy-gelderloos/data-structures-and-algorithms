@@ -67,7 +67,10 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  for(let i = 0; i < str.length; i++){
+    let sliced = str.slice(i);
+    result.push(sliced);
+  }
   return result;
 };
 
@@ -80,7 +83,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  let lettersArr = [...arr];
+  return lettersArr;
 };
 
 
@@ -127,7 +131,13 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(el => {
+    let firstSlice = el.slice(3);
+    let secondSliceIndex = firstSlice.indexOf(' ');
+    let secondSlice = firstSlice.slice(secondSliceIndex).trim();
+    result.push(secondSlice);
+  });
+  //find index of second space (first after index 2 should work), then return after that
   return result;
 };
 
