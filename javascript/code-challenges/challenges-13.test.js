@@ -66,7 +66,10 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let standardArr = [];
+  arr.map(el =>
+    standardArr.push(`${el.substring(1,4)}${el.substring(6,9)}${el.substring(10,14)}`));
+  return standardArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,7 +81,15 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let oddStr = '';
+  let strArr = [...str];
+  console.log(strArr);
+  let oddArr = [];
+  for (let i = 1; i < strArr.length; i += 2) {
+    oddArr.push(strArr[i]);
+  }
+  oddStr = oddArr.join('');
+  return oddStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,7 +99,15 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let happy = true;
+  arr.forEach(el => {
+    if(!el.includes(`:)`)){
+      happy = false;
+      return happy;
+    }
+    return happy;
+  });
+  return happy;
 };
 
 /* ------------------------------------------------------------------------------------------------
