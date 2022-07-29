@@ -196,7 +196,51 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+
+  const checkRows = () => {
+    for (let i = 0; i === 2; i++) {
+      console.log('checkRows i', i);
+      if (helperCheck(i, 0, i, 1, i, 2) === true) {
+        return true;
+      }
+    }
+  };
+
+  const checkColumns = () => {
+    for (let i = 0; i === 2; i++) {
+      console.log('checkColumns i', i);
+      if (helperCheck(0, i, 1, i, 2, i) === true) {
+        return true;
+      }
+    }
+  };
+
+  const checkDiags = () => {
+    if (helperCheck(0, 0, 1, 1, 2, 2) === true || helperCheck(0, 2, 1, 1, 2, 0) === true) {
+      return true;
+    }
+  };
+
+  const helperCheck = (r0, c0, r1, c1, r2, c2) => {
+    let val0 = board[r0][c0];
+    let val1 = board[r1][c1];
+    let val2 = board[r2][c2];
+    console.log('val0, val1, val2', val0, val1, val2);
+
+    if (val0 !== '' && val0 === val1 && val0 === val2) {
+      return true;
+    }
+  };
+
+  function checkWin() {
+    if (checkRows() === true || checkColumns() === true || checkDiags() === true) {
+      return true;
+    }
+    else return false;
+  }
+
+  return checkWin();
+
 };
 
 /* ------------------------------------------------------------------------------------------------
