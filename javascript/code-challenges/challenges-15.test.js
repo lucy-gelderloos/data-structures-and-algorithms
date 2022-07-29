@@ -152,7 +152,9 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   arr.sort((a,b) => {
-    return a[property] - b[property];
+    if(a[property] > b[property]){ return 1; }
+    else if(a[property] < b[property]){ return -1; }
+    else return 0;
   });
   return arr;
 };
@@ -170,7 +172,8 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-  // Solution code here...
+  let regex = /^(https):\/\//;
+  return url.match(regex);
 };
 
 /* ------------------------------------------------------------------------------------------------
