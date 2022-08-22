@@ -14,6 +14,7 @@ public class LinkedListTest
     }
 
     @Test void testInsert() {
+      // not sure how to test this other than using toString, but I don't like having a test depend on another method in the class I'm testing
       LinkedList sut = new LinkedList();
       sut.insert("firstNewHead");
       sut.insert("secondNewHead");
@@ -35,5 +36,11 @@ public class LinkedListTest
       assertFalse(sut.includes("thirdNewHead"));
     }
 
+    @Test void testToString() {
+      LinkedList sut = new LinkedList();
+      sut.insert("firstNewHead");
+      sut.insert("secondNewHead");
+      assertEquals(sut.toString(),"{secondNewHead} -> {firstNewHead} -> NULL");
+    }
 
 }
