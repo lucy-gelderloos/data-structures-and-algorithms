@@ -25,7 +25,7 @@ public class LinkedList
     // if this node is null, exit
     while (thisNode != null) {
       // get value of this node & return true if value matches argument
-      if (thisNode.getValue() == value) {
+      if (thisNode.getValue().equals(value)) {
         return true;
       }
       // move to the next node
