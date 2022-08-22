@@ -19,4 +19,11 @@ public class LinkedListTest
       sut.insert("secondNewHead");
       assertEquals(sut.toString(),"{secondNewHead} -> {firstNewHead} -> NULL");
     }
+
+    @Test void testHeadPointsToNext() {
+      LinkedList sut = new LinkedList();
+      sut.insert("firstNewHead");
+      sut.insert("secondNewHead");
+      assertEquals(sut.head.getNext().value,"firstNewHead");
+    }
 }
