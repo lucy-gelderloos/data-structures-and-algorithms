@@ -26,4 +26,14 @@ public class LinkedListTest
       sut.insert("secondNewHead");
       assertEquals(sut.head.getNext().value,"firstNewHead");
     }
+
+    @Test void testIncludes() {
+      LinkedList sut = new LinkedList();
+      sut.insert("firstNewHead");
+      sut.insert("secondNewHead");
+      assertTrue(sut.includes("firstNewHead"));
+      assertFalse(sut.includes("thirdNewHead"));
+    }
+
+
 }
