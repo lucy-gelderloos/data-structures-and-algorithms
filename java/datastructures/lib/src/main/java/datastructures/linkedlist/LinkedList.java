@@ -41,6 +41,7 @@ public class LinkedList
     Node thisNode = this.head;
     while (thisNode != null) {
       contents += "{" + thisNode.getValue() + "} -> ";
+      thisNode = thisNode.getNext();
     }
       return contents + "NULL";
     }
