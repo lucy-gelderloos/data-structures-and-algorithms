@@ -4,8 +4,7 @@
 
 ## Code Challenges
 
-### Challenge 01
+### Challenge 05 - Linked List Implementation
 
-Location: `codechallenges/linkedlist/LinkedListChallenges`
-
-Method: `linkedListChallenge06()`
+Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist`
