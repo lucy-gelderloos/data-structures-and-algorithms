@@ -1,17 +1,17 @@
 package datastructures.linkedlist;
 
 public class Node {
-  String value;
-  Node next;
+  private int value;
+  private Node next;
 
 //  https://www.javatpoint.com/java-program-to-create-a-singly-linked-list-of-n-nodes-and-count-the-number-of-nodes
 
-  public Node(String value){
+  public Node(int value){
     this.value = value;
   }
 
   public Node() {
-    this.value = "";
+    this.value = 0;
   }
 
   public void setNext(Node next) {
@@ -22,11 +22,11 @@ public class Node {
     return next;
   }
 
-  public void setValue(String value) {
+  public void setValue(int value) {
     this.value = value;
   }
 
-  public String getValue() {
+  public int getValue() {
     return value;
   }
 
