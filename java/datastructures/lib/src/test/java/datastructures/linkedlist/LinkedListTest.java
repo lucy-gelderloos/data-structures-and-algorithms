@@ -42,4 +42,37 @@ public class LinkedListTest
       assertEquals("{10} -> {7} -> NULL",sut.toString());
     }
 
+    @Test void testAppend() {
+      LinkedList testList = new LinkedList();
+      testList.insert(3);
+      testList.insert(4);
+      testList.insert(5);
+      testList.insert(6);
+      testList.insert(7);
+      testList.append(2);
+      assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
+    }
+
+    @Test void testInsertBefore() {
+      LinkedList testList = new LinkedList();
+      testList.insert(2);
+      testList.insert(3);
+      testList.insert(5);
+      testList.insert(6);
+      testList.insert(7);
+      testList.insertBefore(4,3);
+      assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
+    }
+
+    @Test void testInsertAfter() {
+      LinkedList testList = new LinkedList();
+      testList.insert(2);
+      testList.insert(3);
+      testList.insert(5);
+      testList.insert(6);
+      testList.insert(7);
+      testList.insertAfter(4,5);
+      assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
+    }
+
 }

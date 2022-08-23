@@ -21,38 +21,35 @@ public class LinkedList
 
   public void append(int value) {
     // add value to end of list
+    Node newNode = new Node(value);
     Node thisNode = this.head;
-    while (thisNode != null) {
+    while (thisNode.getNext() != null) {
       thisNode = thisNode.getNext();
     }
-    thisNode.setValue(value);
-    thisNode.setNext(null);
+    thisNode.setNext(newNode);
+    newNode.setNext(null);
   }
 
   public void insertBefore(int value, int targetValue) {
     // add value before first node containing specified target value
     Node thisNode = this.head;
     Node newNode = new Node(value);
-    while (thisNode != null) {
-      if(thisNode.getNext().getValue() == targetValue){
-        thisNode.setNext(newNode);
-        newNode.setNext(thisNode.getNext());
-        break;
-      }
+    while (thisNode.getNext().getValue() != targetValue) {
+      thisNode = thisNode.getNext();
     }
+    newNode.setNext(thisNode.getNext());
+    thisNode.setNext(newNode);
   }
 
   public void insertAfter(int value, int targetValue) {
     // add value after first node containing specified target value
     Node thisNode = this.head;
     Node newNode = new Node(value);
-    while (thisNode != null) {
-      if(thisNode.getValue() == targetValue){
-        thisNode.setNext(newNode);
-        newNode.setNext(thisNode.getNext());
-        break;
-      }
+    while (thisNode.getValue() != targetValue) {
+      thisNode = thisNode.getNext();
     }
+    newNode.setNext(thisNode.getNext());
+    thisNode.setNext(newNode);
   }
 
   public boolean includes(int value) {
@@ -69,6 +66,8 @@ public class LinkedList
       }
       return false;
   }
+
+
 
   @Override
   public String toString() {
