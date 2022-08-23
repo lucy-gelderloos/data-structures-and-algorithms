@@ -21,18 +21,38 @@ public class LinkedList
 
   public void append(int value) {
     // add value to end of list
+    Node thisNode = this.head;
+    while (thisNode != null) {
+      thisNode = thisNode.getNext();
+    }
+    thisNode.setValue(value);
+    thisNode.setNext(null);
   }
 
   public void insertBefore(int value, int targetValue) {
-    // add value before first node containing specified value
+    // add value before first node containing specified target value
+    Node thisNode = this.head;
+    Node newNode = new Node(value);
+    while (thisNode != null) {
+      if(thisNode.getNext().getValue() == targetValue){
+        thisNode.setNext(newNode);
+        newNode.setNext(thisNode.getNext());
+        break;
+      }
+    }
   }
 
   public void insertAfter(int value, int targetValue) {
-    // add value after first node containing specified value
-  }
-
-  public void find(int targetValue) {
-
+    // add value after first node containing specified target value
+    Node thisNode = this.head;
+    Node newNode = new Node(value);
+    while (thisNode != null) {
+      if(thisNode.getValue() == targetValue){
+        thisNode.setNext(newNode);
+        newNode.setNext(thisNode.getNext());
+        break;
+      }
+    }
   }
 
   public boolean includes(int value) {

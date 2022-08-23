@@ -10,7 +10,6 @@ public class LinkedListTest
       LinkedList sut = new LinkedList();
       System.out.println(sut);
       assertNull(sut.head);
-      assertTrue(sut.head == null);
     }
 
     @Test void testInsert() {
