@@ -6,10 +6,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LinkedListTest
 {
-    @Test void testCreate() {
+    @Test void testCreateList() {
       LinkedList sut = new LinkedList();
       System.out.println(sut);
-      assertNull(sut.head);
+      assertNull(sut.getHead());
+    }
+
+    @Test void testCreateNode() {
+      Node sut1 = new Node(3);
+      Node sut2 = new Node();
+
+      assertEquals(3, sut1.getValue());
+      assertEquals(0, sut2.getValue());
     }
 
     @Test void testInsert() {
@@ -24,7 +32,7 @@ public class LinkedListTest
       LinkedList sut = new LinkedList();
       sut.insert(7);
       sut.insert(10);
-      assertEquals(7,sut.head.getNext().value);
+      assertEquals(7,sut.getHead().getNext().getValue());
     }
 
     @Test void testIncludes() {

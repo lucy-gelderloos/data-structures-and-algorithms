@@ -1,8 +1,8 @@
 package datastructures.linkedlist;
 
 public class Node {
-  int value;
-  Node next;
+  private int value;
+  private Node next;
 
 //  https://www.javatpoint.com/java-program-to-create-a-singly-linked-list-of-n-nodes-and-count-the-number-of-nodes
 

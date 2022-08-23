@@ -2,7 +2,7 @@ package datastructures.linkedlist;
 
 public class LinkedList
 {
-  public Node head;
+  private Node head;
 
   public LinkedList() {
     // creates new list with head null
@@ -67,8 +67,6 @@ public class LinkedList
       return false;
   }
 
-
-
   @Override
   public String toString() {
     String contents = "";
@@ -80,4 +78,12 @@ public class LinkedList
     }
       return contents + "NULL";
     }
+
+  public Node getHead() {
+    return head;
+  }
+
+  public void setHead(Node head) {
+    this.head = head;
+  }
 }
