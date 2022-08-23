@@ -7,3 +7,4 @@
 3. [Binary search of an array](/java/array-binary-search/README.md)
 4. Mock whiteboard interviews
 5. [Create a linked list](/java/datastructures/README.md)
+6. [Add to linked lists](/java/datastructures/README.md)
