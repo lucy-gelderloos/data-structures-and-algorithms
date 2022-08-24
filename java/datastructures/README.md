@@ -53,3 +53,20 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### Testing
 
 [//]: # (TODO: describe tests)
+
+### Challenge 07
+
+In the LinkedList class, create a method called kthFromEnd that returns the value that is k nodes from the end of a linked list.
+
+Location: `src/main/java/codechallenges/datastructures/linkedlist`
+
+Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+
+#### LinkedList.java
+
+- Methods
+  - *kthFromEnd(int k)* returns the value of the node that is k nodes from the end of the list
+
+#### Testing
+
+[//]: # (TODO: describe tests)

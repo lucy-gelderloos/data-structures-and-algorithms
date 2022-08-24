@@ -1,7 +1,6 @@
 package datastructures.linkedlist;
 
-public class LinkedList
-{
+public class LinkedList {
   private Node head;
 
   public LinkedList() {
@@ -28,6 +27,7 @@ public class LinkedList
     }
     thisNode.setNext(newNode);
     newNode.setNext(null);
+    // TODO: account for empty list (wrap while loop in "while thisNode !null"?
   }
 
   public void insertBefore(int value, int targetValue) {
@@ -63,8 +63,26 @@ public class LinkedList
       }
       // move to the next node
       thisNode = thisNode.getNext();
-      }
-      return false;
+    }
+    return false;
+  }
+
+  public int kthFromEnd(int k) {
+    int kthValue;
+    Node thisNode = this.head;
+    while (thisNode.getNext() != null) {
+      // sets this node as the previous node of the next node
+      thisNode.getNext().setPrev(thisNode);
+      thisNode = thisNode.getNext();
+    }
+    // if next node is null, this is the last node; start a for loop
+    for (int i = 0; i < k; i++) {
+      // turn around and go back k nodes
+      thisNode = thisNode.getPrev();
+    }
+    kthValue = thisNode.getValue();
+    return kthValue;
+    // TODO: handle exceptions
   }
 
   @Override
