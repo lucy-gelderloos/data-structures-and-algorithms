@@ -3,6 +3,7 @@ package datastructures.linkedlist;
 public class Node {
   private int value;
   private Node next;
+  private Node prev;
 
 //  https://www.javatpoint.com/java-program-to-create-a-singly-linked-list-of-n-nodes-and-count-the-number-of-nodes
 
@@ -30,4 +31,11 @@ public class Node {
     return value;
   }
 
+  public Node getPrev() {
+    return prev;
+  }
+
+  public void setPrev(Node prev) {
+    this.prev = prev;
+  }
 }

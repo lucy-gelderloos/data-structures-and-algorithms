@@ -83,4 +83,21 @@ public class LinkedListTest
       assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
     }
 
+    @Test void testKthFromEnd() {
+      LinkedList testList = new LinkedList();
+      testList.insert(2);
+      testList.insert(3);
+      testList.insert(4);
+      testList.insert(5);
+      testList.insert(6);
+      testList.insert(7);
+
+      int k1 = 3;
+      // should return 4
+      int k2 = 0;
+      // should return 7
+      int k3 = 8;
+      // should throw an exception
+    }
+
 }
