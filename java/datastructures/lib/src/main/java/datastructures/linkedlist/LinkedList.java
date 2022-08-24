@@ -70,27 +70,20 @@ public class LinkedList {
   public int kthFromEnd(int k) {
     int kthValue;
     Node thisNode = this.head;
-    try {
-      while (thisNode.getNext() != null) {
-        // sets this node as the previous node of the next node
-        thisNode.getNext().setPrev(thisNode);
-        thisNode = thisNode.getNext();
-      }
-      try {
-        // if next node is null, this is the last node; start a for loop
-        for (int i = k; i > 0; i--) {
-          // turn around and go back k nodes
-          thisNode = thisNode.getPrev();
-        }
-      } catch (Exception e) {
-        System.out.println("Exception in for loop:" + e);
-        }
-    } catch (Exception e) {
-      System.out.println("Exception in for loop:" + e);
-      }
+    while (thisNode.getNext() != null) {
+      // sets this node as the previous node of the next node
+      thisNode.getNext().setPrev(thisNode);
+      thisNode = thisNode.getNext();
+    }
+    // if next node is null, this is the last node; start a for loop
+    for (int i = 0; i < k; i++) {
+      // turn around and go back k nodes
+      thisNode = thisNode.getPrev();
+    }
     kthValue = thisNode.getValue();
     return kthValue;
-}
+    // TODO: handle exceptions
+  }
 
   @Override
   public String toString() {
