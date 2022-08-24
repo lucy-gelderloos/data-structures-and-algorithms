@@ -6,6 +6,8 @@ public class LinkedList {
   public LinkedList() {
     // creates new list with head null
     this.head = null;
+
+
   }
 
   //https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
