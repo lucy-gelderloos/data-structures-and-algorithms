@@ -8,3 +8,5 @@
 4. Mock whiteboard interviews
 5. [Create a linked list](/java/datastructures/README.md)
 6. [Add to linked lists](/java/datastructures/README.md)
+7. [kth from End](/java/datastructures/README.md)
+8. [Zip Linked Lists](/java/datastructures/README.md)
