@@ -1,5 +1,7 @@
 package datastructures.linkedlist;
 
+import static java.util.Objects.isNull;
+
 public class LinkedList
 {
   private Node head;
@@ -7,18 +9,6 @@ public class LinkedList
   public LinkedList() {
     // creates new list with head null
     this.head = null;
-
-
-  }
-
-  //https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
-  public void insert(int value) {
-    // creates new node using Node class
-    Node newNode = new Node(value);
-    // sets pointer of new node to point at current head
-    newNode.setNext(this.head);
-    // makes new node new head
-    this.head = newNode;
   }
 
   @Override
@@ -33,28 +23,56 @@ public class LinkedList
     return contents + "NULL";
   }
 
+  //https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
+  public void insert(int value) {
+    // creates new node using Node class
+    Node newNode = new Node(value);
+    // sets pointer of new node to point at current head
+    newNode.setNext(this.head);
+    // makes new node new head
+    this.head = newNode;
+  }
+
   public void append(int value) {
     // add value to end of list
     Node newNode = new Node(value);
     Node thisNode = this.head;
-    if (thisNode != null) {
+    if (isNull(thisNode)) {
+      this.setHead(newNode);
+    } else {
       while (thisNode != null && thisNode.getNext() != null) {
-        thisNode = thisNode.getNext();
+        // iterate through and stop when thisNode is pointing at the last node
+      thisNode = thisNode.getNext();
       }
       thisNode.setNext(newNode);
-    } else { this.setHead(newNode); }
+    }
     newNode.setNext(null);
   }
 
-  public void insertBefore(int value, int targetValue) {
+  public void insertBefore(int value, int targetValue) throws Exception {
     // add value before first node containing specified target value
     Node thisNode = this.head;
     Node newNode = new Node(value);
-    while (thisNode.getNext().getValue() != targetValue) {
-      thisNode = thisNode.getNext();
+
+    if(isNull(thisNode) || thisNode.getValue() == targetValue) {
+      // if head is null (i.e., list is empty), or if the value of the head node is the target value, insert the value at the beginning of the list
+      this.insert(value);
+    } else {
+      while (thisNode.getNext() != null) {
+        // by now, list is confirmed to have at least one node, whose value is not the target value
+        // while the next node is not null, check if the value of the next node is the target value
+        if (thisNode.getNext().getValue() == targetValue) {
+          // if yes, set the new node to point to the next node
+          newNode.setNext(thisNode.getNext());
+          // set this node to point to the new node
+          thisNode.setNext(newNode);
+          return;
+        } else {
+          thisNode = thisNode.getNext();
+        }
+      }
     }
-    newNode.setNext(thisNode.getNext());
-    thisNode.setNext(newNode);
+    throw new Exception("The target value is not in the list.");
   }
 
   public void insertAfter(int value, int targetValue) {
@@ -86,7 +104,28 @@ public class LinkedList
       return false;
   }
 
+
+  public int kthFromEnd(int k) {
+    int kthValue;
+    Node thisNode = this.head;
+    while (thisNode.getNext() != null) {
+      // sets this node as the previous node of the next node
+      thisNode.getNext().setPrev(thisNode);
+      thisNode = thisNode.getNext();
+    }
+    // if next node is null, this is the last node; start a for loop
+    for (int i = 0; i < k; i++) {
+      // turn around and go back k nodes
+      thisNode = thisNode.getPrev();
+    }
+    kthValue = thisNode.getValue();
+    return kthValue;
+    // TODO: handle exceptions
+
+  }
+
   public static LinkedList zipLists(LinkedList list1, LinkedList list2) throws Exception {
+
     if(list1.getHead() == null && list2.getHead() == null) {
       throw new Exception("Both lists are empty.");
     }
@@ -109,6 +148,7 @@ public class LinkedList
   }
 
   public static LinkedList zipSortedLists(LinkedList list1, LinkedList list2) throws Exception {
+
     if(list1.getHead() == null && list2.getHead() == null) {
       throw new Exception("Both lists are empty.");
     }
