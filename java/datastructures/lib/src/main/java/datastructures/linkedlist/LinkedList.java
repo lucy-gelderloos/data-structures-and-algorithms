@@ -49,7 +49,6 @@ public class LinkedList
       thisNode.setNext(newNode);
     }
     newNode.setNext(null);
-    // TODO: account for empty list (wrap while loop in "while thisNode !null"?
   }
 
   public void insertBefore(int value, int targetValue) throws Exception {
@@ -147,19 +146,26 @@ public class LinkedList
   public static LinkedList zipLists(LinkedList list1, LinkedList list2) throws Exception {
 
     if(list1.getHead() == null && list2.getHead() == null) {
+      // if both lists are empty, throw an exception
       throw new Exception("Both lists are empty.");
     }
 
     LinkedList outputList = new LinkedList();
+    // create empty output list
     Node list1CurrentNode = list1.getHead();
+    // point list1CurrentNode to the head of list1
     Node list2CurrentNode = list2.getHead();
+    // point list2CurrentNode to the head of list2
 
     while(list1CurrentNode != null || list2CurrentNode != null){
+      // while either CurrentNode is not null
       if(list1CurrentNode != null) {
+        // if list1CurrentNode is not null, insert it into output list, then move to the next node
         outputList.append(list1CurrentNode.getValue());
         list1CurrentNode = list1CurrentNode.getNext();
       }
       if(list2CurrentNode != null) {
+        // if list2CurrentNode is not null, insert it into output list, then move to the next node
         outputList.append(list2CurrentNode.getValue());
         list2CurrentNode = list2CurrentNode.getNext();
       }

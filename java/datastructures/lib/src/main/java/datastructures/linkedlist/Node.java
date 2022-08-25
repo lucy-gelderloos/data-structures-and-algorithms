@@ -15,8 +15,6 @@ public class Node {
     this.value = 0;
   }
 
-  // TODO: constructors for lists of integers, strings, etc.
-
   public void setNext(Node next) {
     this.next = next;
   }
@@ -33,9 +31,7 @@ public class Node {
     return value;
   }
 
-  public Node getPrev() {
-    return prev;
-  }
+  public Node getPrev() { return prev; }
 
   public void setPrev(Node prev) {
     this.prev = prev;
