@@ -54,12 +54,15 @@ public class LinkedList
     Node thisNode = this.head;
     Node newNode = new Node(value);
 
-    if(isNull(thisNode) || thisNode.getValue() == targetValue) {
-      // if head is null (i.e., list is empty), or if the value of the head node is the target value, insert the value at the beginning of the list
+    if(isNull(thisNode)) {
+      throw new Exception("The list is empty.");
+    }
+
+    if(thisNode.getValue() == targetValue) {
+      // if the value of the head node is the target value, insert the value at the beginning of the list
       this.insert(value);
     } else {
       while (thisNode.getNext() != null) {
-        // by now, list is confirmed to have at least one node, whose value is not the target value
         // while the next node is not null, check if the value of the next node is the target value
         if (thisNode.getNext().getValue() == targetValue) {
           // if yes, set the new node to point to the next node
@@ -75,18 +78,20 @@ public class LinkedList
     throw new Exception("The target value is not in the list.");
   }
 
-  public void insertAfter(int value, int targetValue) {
+  public void insertAfter(int value, int targetValue) throws Exception {
     // add value after first node containing specified target value
     Node thisNode = this.head;
     Node newNode = new Node(value);
     while (thisNode != null) {
-      if (thisNode.getValue() == targetValue) {
-        break;
+      if (thisNode.getValue() != targetValue) {
+        thisNode = thisNode.getNext();
+      } else {
+        newNode.setNext(thisNode.getNext());
+        thisNode.setNext(newNode);
+        return;
       }
-      thisNode = thisNode.getNext();
     }
-    newNode.setNext(thisNode.getNext());
-    thisNode.setNext(newNode);
+    throw new Exception("The target value is not in the list.");
   }
 
   public boolean includes(int value) {
@@ -105,23 +110,35 @@ public class LinkedList
   }
 
 
-  public int kthFromEnd(int k) {
+  public int kthFromEnd(int k) throws Exception {
+
     int kthValue;
     Node thisNode = this.head;
-    while (thisNode.getNext() != null) {
-      // sets this node as the previous node of the next node
-      thisNode.getNext().setPrev(thisNode);
-      thisNode = thisNode.getNext();
+
+    if(isNull(thisNode)) {
+      throw new Exception("The list is empty.");
     }
-    // if next node is null, this is the last node; start a for loop
-    for (int i = 0; i < k; i++) {
-      // turn around and go back k nodes
-      thisNode = thisNode.getPrev();
+
+    while(thisNode != null) {
+
+      Node nextNode = thisNode.getNext();
+
+      if(nextNode != null) {
+        // if the next node is not null, set this node as the previous node of the next node
+        nextNode.setPrev(thisNode);
+        // move to the next node
+        thisNode = thisNode.getNext();
+      } else {
+        // if next node is null, this is the last node; start a for loop
+        for(int i = 0; i < k; i++) {
+          // turn around and go back k nodes
+          thisNode = thisNode.getPrev();
+        }
+        break;
+      }
     }
     kthValue = thisNode.getValue();
     return kthValue;
-    // TODO: handle exceptions
-
   }
 
   public static LinkedList zipLists(LinkedList list1, LinkedList list2) throws Exception {

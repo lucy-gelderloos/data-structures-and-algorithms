@@ -77,7 +77,7 @@ public class LinkedListTest
       assertEquals("The target value is not in the list.", exception.getMessage());
     }
 
-    @Test void testInsertAfter() {
+    @Test void testInsertAfter() throws Exception {
       LinkedList testList = new LinkedList();
       testList.insert(2);
       testList.insert(3);
@@ -86,9 +86,12 @@ public class LinkedListTest
       testList.insert(7);
       testList.insertAfter(4,5);
       assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
+
+      Exception exception = assertThrows(Exception.class, () -> testList.insertBefore(4, 9));
+      assertEquals("The target value is not in the list.", exception.getMessage());
     }
 
-  @Test void testKthFromEnd()  {
+  @Test void testKthFromEnd() throws Exception {
     LinkedList testList = new LinkedList();
     testList.insert(2);
     testList.insert(3);
