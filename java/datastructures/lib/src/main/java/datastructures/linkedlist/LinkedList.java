@@ -16,6 +16,7 @@ public class LinkedList
     String contents = "";
     // same loop as above, except add the value to the string instead of checking against an argument
     Node thisNode = this.head;
+
     while (thisNode != null) {
       contents += "{" + thisNode.getValue() + "} -> ";
       thisNode = thisNode.getNext();

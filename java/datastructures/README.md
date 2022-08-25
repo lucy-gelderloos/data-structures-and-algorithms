@@ -19,9 +19,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 - Constructor
   - *LinkedList* creates a new linked list with a head node whose value is null
 - Methods
-  - *insert* creates a new node whose value is the provided integer and inserts it at the beginning of the list
-  - *includes* returns `true` if the value of any node in the list matches the provided integer
-  - *toString* iterates through the list and returns a string containing every value and ending in `NULL`, formatted as follows: "{<value of head node>} -> {<value of second node>} -> {<value of third node>} -> ... -> {<value of tail node>} -> NULL"
+  - *insert(int value)* creates a new node whose value is the provided integer and inserts it at the beginning of the list. If the list is empty, becomes the new head node.
+  - *includes(int value)* returns `true` if the value of any node in the list matches the provided integer and `false` if not.
+  - *toString()* iterates through the list and returns a string containing every value and ending in "NULL", formatted as follows: "{<value of head node>} -> {<value of second node>} -> {<value of third node>} -> ... -> {<value of tail node>} -> NULL". If the list is empty, returns "NULL".
 
 #### Node.java
 
@@ -46,14 +46,13 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### LinkedList.java
 
 - Methods
-  - *append* creates a new node whose value is the provided integer and inserts it at the end of the list
-  - *insertBefore* creates a new node whose value is the provided integer and inserts it before the first node whose value is the provided target value
-  - *insertAfter* creates a new node whose value is the provided integer and inserts it after the first node whose value is the provided target value
+  - *append(int value)* creates a new node whose value is the provided integer and inserts it at the end of the list
+  - *insertBefore(int value, int targetValue)* creates a new node whose value is the provided integer and inserts it before the first node whose value is the provided target value. Throws an exception if the list is empty or if the target value is not in the list.
+  - *insertAfter(int value, int targetValue)* creates a new node whose value is the provided integer and inserts it after the first node whose value is the provided target value. Throws an exception if the list is empty or if the target value is not in the list.
 
 #### Testing
 
 [//]: # (TODO: describe tests)
-
 
 ### Challenge 07
 
@@ -66,7 +65,27 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### LinkedList.java
 
 - Methods
-  - *kthFromEnd(int k)* returns the value of the node that is k nodes from the end of the list
+  - *kthFromEnd(int k)* returns the value of the node that is k nodes from the end of the list. Throws an exception if the provided k value is larger than the length of the list.
+
+#### Testing
+
+[//]: # (TODO: describe tests)
+
+### Challenge 08
+
+In the LinkedList class, create a method that zips two linked lists together and returns the lists' alternating values in another linked list.
+
+*Stretch goal:* create a method that zips two sorted lists together and returns a sorted list.
+
+Location: `src/main/java/codechallenges/datastructures/linkedlist`
+
+Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+
+#### LinkedList.java
+
+- Methods
+  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null.
+  - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.
 
 #### Testing
 
