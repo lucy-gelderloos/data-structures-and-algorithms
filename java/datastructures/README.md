@@ -65,6 +65,7 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### LinkedList.java
 
 - Methods
+
   - *kthFromEnd(int k)* returns the value of the node that is k nodes from the end of the list. Throws an exception if the provided k value is larger than the length of the list.
 
 #### Testing
@@ -90,5 +91,3 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### Testing
 
 [//]: # (TODO: describe tests)
-
-
