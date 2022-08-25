@@ -9,3 +9,4 @@
 5. [Create a linked list](/java/datastructures/README.md)
 6. [Add to linked lists](/java/datastructures/README.md)
 7. [Find kth value from end of list](/java/datastructures/README.md)
+8. [Zip Linked Lists](/java/datastructures/README.md)
