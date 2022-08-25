@@ -59,6 +59,7 @@ public class LinkedListTest
       testList.insert(7);
       testList.append(2);
       assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
+      assertEquals(7,testList.getHead().getValue());
     }
 
     @Test void testInsertBefore() {
@@ -81,6 +82,86 @@ public class LinkedListTest
       testList.insert(7);
       testList.insertAfter(4,5);
       assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
+    }
+
+    @Test void testZipLists() throws Exception {
+      LinkedList list1 = new LinkedList();
+      list1.append(1);
+      list1.append(3);
+      list1.append(5);
+
+      LinkedList list2 = new LinkedList();
+      list2.append(2);
+      list2.append(4);
+      list2.append(6);
+
+      LinkedList list3 = new LinkedList();
+      list3.append(2);
+      list3.append(4);
+      list3.append(6);
+      list3.append(8);
+      list3.append(10);
+
+      LinkedList list4 = new LinkedList();
+      LinkedList list5 = new LinkedList();
+
+      // does it zip lists of equal length correctly?
+      LinkedList equalLengthLists = LinkedList.zipLists(list1, list2);
+
+      // does it work correctly if one list is longer than the other?
+      LinkedList oneLonger = LinkedList.zipLists(list1, list3);
+
+      // does it work correctly if one list is null?
+      LinkedList oneNull = LinkedList.zipLists(list1, list4);
+
+      assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> NULL",equalLengthLists.toString());
+      assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> {8} -> {10} -> NULL",oneLonger.toString());
+      assertEquals("{1} -> {3} -> {5} -> NULL",oneNull.toString());
+
+      // does it throw an exception if both lists are null?
+      Exception exception = assertThrows(Exception.class, () -> LinkedList.zipLists(list4, list5));
+      assertEquals("Both lists are empty.", exception.getMessage());
+    }
+
+    @Test void testZipSortedLists() throws Exception {
+      LinkedList sortedList1 = new LinkedList();
+      sortedList1.append(1);
+      sortedList1.append(2);
+      sortedList1.append(5);
+      sortedList1.append(7);
+
+      LinkedList sortedList2 = new LinkedList();
+      sortedList2.append(3);
+      sortedList2.append(4);
+      sortedList2.append(5);
+      sortedList2.append(6);
+
+      LinkedList list3 = new LinkedList();
+      list3.append(3);
+      list3.append(4);
+      list3.append(5);
+      list3.append(6);
+      list3.append(8);
+
+      LinkedList list4 = new LinkedList();
+      LinkedList list5 = new LinkedList();
+
+      // does it zip lists of equal length correctly?
+      LinkedList equalLengthLists = LinkedList.zipSortedLists(sortedList1, sortedList2);
+
+      // does it work correctly if one list is longer than the other?
+      LinkedList oneLonger = LinkedList.zipSortedLists(sortedList1, list3);
+
+      // does it work correctly if one list is null?
+      LinkedList oneNull = LinkedList.zipSortedLists(sortedList1, list4);
+
+      assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {5} -> {6} -> {7} -> NULL",equalLengthLists.toString());
+      assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {5} -> {6} -> {7} -> {8} -> NULL",oneLonger.toString());
+      assertEquals("{1} -> {2} -> {5} -> {7} -> NULL",oneNull.toString());
+
+      // does it throw an exception if both lists are null?
+      Exception exception = assertThrows(Exception.class, () -> LinkedList.zipLists(list4, list5));
+      assertEquals("Both lists are empty.", exception.getMessage());
     }
 
 }
