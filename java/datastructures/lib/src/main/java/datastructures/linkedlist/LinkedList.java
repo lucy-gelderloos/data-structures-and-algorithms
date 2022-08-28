@@ -145,6 +145,8 @@ public class LinkedList
 
   public static LinkedList zipLists(LinkedList list1, LinkedList list2) throws Exception {
 
+    // TODO: a method to modify one of the lists in-place rather than creating a new list
+
     if(list1.getHead() == null && list2.getHead() == null) {
       // if both lists are empty, throw an exception
       throw new Exception("Both lists are empty.");
@@ -162,6 +164,7 @@ public class LinkedList
       if(list1CurrentNode != null) {
         // if list1CurrentNode is not null, insert it into output list, then move to the next node
         outputList.append(list1CurrentNode.getValue());
+        // TODO: because we know we're at the end of the output list, don't need to use append() to iterate through and find the end
         list1CurrentNode = list1CurrentNode.getNext();
       }
       if(list2CurrentNode != null) {
@@ -205,6 +208,14 @@ public class LinkedList
     }
 
     return outputList;
+  }
+
+  public void reverse(LinkedList list) {
+    // TODO: try reversing list
+  }
+
+  public void isPalindrome(LinkedList list) {
+    // TODO: try checking if is palindrome
   }
 
   public Node getHead() {
