@@ -4,43 +4,60 @@ package datastructures.linkedlist;
 // This object should be aware of a default empty value assigned to top when the stack is created.
 
 public class Stack {
-  private Node head;
+  private Node top;
 
-  public Stack(Node head) {
-    this.head = head;
+  public Stack(Node top) {
+    this.top = top;
   }
 
   public Stack() {
-    this.head = null;
+    this.top = null;
   }
 
   public void push(int value) {
     // adds a new node with that value to the top of the stack with an O(1) Time performance.
     // TODO: make generic
+    Node newNode = new Node(value);
+    newNode.setNext(this.top);
+    this.top = newNode;
   }
 
-  public void pop() throws Exception {
+  public int pop() throws Exception {
     // Returns: the value from node from the top of the stack
     // Removes the node from the top of the stack
     // Should raise exception when called on empty stack
+    // TODO: make generic
+    if(this.isEmpty() == true) {
+      throw new Exception("Cannot pop. The Stack is empty.");
+    } else {
+      Node prevTopNode = this.top;
+      if(prevTopNode.getNext() != null){
+      this.setTop(prevTopNode.getNext());
+      }
+      prevTopNode.setNext(null);
+      return prevTopNode.getValue();
+    }
   }
 
-  public void peek() throws Exception {
+  public int peek() throws Exception {
     // Returns: Value of the node located at the top of the stack
     // Should raise exception when called on empty stack
+    if(this.isEmpty() == true) {
+      throw new Exception("Cannot peek. The Stack is empty.");
+    } else {
+      return this.top.getValue();
+    }
   }
 
-  public boolean isEmpty(Stack stack) {
-    // Arguments: none
-    // Returns: Boolean indicating whether the stack is empty.
-    return true;
+  public boolean isEmpty() {
+    return this.top != null;
   }
 
-  public Node getHead() {
-    return head;
+  public Node getTop() {
+    return top;
   }
 
-  public void setHead(Node head) {
-    this.head = head;
+  public void setTop(Node head) {
+    this.top = top;
   }
 }

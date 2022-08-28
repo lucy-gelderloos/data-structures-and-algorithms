@@ -1,41 +1,48 @@
 package datastructures.linkedlist;
 
+import java.util.concurrent.ExecutionException;
+
 public class Queue {
   private Node front = new Node();
-
-  public Queue(Node front) {
-    this.front = front;
-  }
+  private Node rear = new Node();
 
   public Queue() {
     this.front = null;
+    this.rear = null;
   }
 
   public void enqueue(int value) {
-    // adds a new node with that value to the back of the queue with an O(1) Time performance.
-
+    // convert provided value to node & add to the end of the list
+    Node newNode = new Node(value);
+    this.rear.setNext(newNode);
   }
 
-  public void dequeue() throws Exception {
+  public int dequeue() throws Exception {
     // Returns: the value from node from the front of the queue
     // Removes the node from the front of the queue
     // Should raise exception when called on empty queue
-
+    if(this.isEmpty() == true){
+      throw new Exception("Cannot dequeue. The Queue is empty.");
+    } else {
+      Node prevFrontNode = this.front;
+      this.front = prevFrontNode.getNext();
+      prevFrontNode.setNext(null);
+      return prevFrontNode.getValue();
+    }
   }
 
-  public void peek() throws Exception {
+  public int peek() throws Exception {
     // Returns: Value of the node located at the front of the queue
     // Should raise exception when called on empty stack
-
+    if(this.isEmpty() == true){
+      throw new Exception("Cannot peek. The Queue is empty.");
+    } else return this.front.getValue();
   }
 
   public boolean isEmpty() {
     // Returns: Boolean indicating whether the queue is empty
-
-    return true;
+    return this.front != null;
   }
-
-
 
   public Node getFront() {
     return front;
@@ -43,5 +50,13 @@ public class Queue {
 
   public void setFront(Node front) {
     this.front = front;
+  }
+
+  public Node getRear() {
+    return rear;
+  }
+
+  public void setRear(Node rear) {
+    this.rear = rear;
   }
 }
