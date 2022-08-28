@@ -1,7 +1,5 @@
 package datastructures.linkedlist;
 
-import java.util.concurrent.ExecutionException;
-
 public class Queue {
   private Node front = new Node();
   private Node rear = new Node();

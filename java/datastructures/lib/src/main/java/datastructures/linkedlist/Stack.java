@@ -3,6 +3,8 @@ package datastructures.linkedlist;
 // Create a Stack class that has a top property. It creates an empty Stack when instantiated.
 // This object should be aware of a default empty value assigned to top when the stack is created.
 
+import static java.util.Objects.isNull;
+
 public class Stack {
   private Node top;
 
@@ -31,8 +33,11 @@ public class Stack {
       throw new Exception("Cannot pop. The Stack is empty.");
     } else {
       Node prevTopNode = this.top;
-      if(prevTopNode.getNext() != null){
-      this.setTop(prevTopNode.getNext());
+      if(isNull(prevTopNode.getNext())) {
+        this.top = null;
+      } else {
+        Node prevNextNode = this.top.getNext();
+        this.top = prevNextNode;
       }
       prevTopNode.setNext(null);
       return prevTopNode.getValue();
@@ -50,7 +55,9 @@ public class Stack {
   }
 
   public boolean isEmpty() {
-    return this.top != null;
+    if(this.getTop() != null) {
+      return false;
+    } else return true;
   }
 
   public Node getTop() {
