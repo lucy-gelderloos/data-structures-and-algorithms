@@ -91,3 +91,62 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### Testing
 
 [//]: # (TODO: describe tests)
+
+#### LinkedList.java
+
+- Methods
+  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null.
+  - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.
+
+#### Testing
+
+[//]: # (TODO: describe tests)
+
+### Challenge 10
+
+Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
+
+Location: `src/main/java/codechallenges/datastructures/linkedlist`
+
+Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+
+#### Stack.java
+
+- Properties:
+  - Node `top`
+- Constructor
+  - *Stack* creates a new stack with a null top
+- Methods
+  - *push(int value)* creates a node whose value is the provided value and inserts it at the top of the stack.
+  - *pop()* removes the top node of the stack and returns its value. Throws an exception if the stack is empty.
+  - *peek()* returns the value of the top node of the stack without modifying the stack. Throws an exception if the stack is empty.
+  - *isEmpty()* returns `true` if the stack is empty and `false` if it is not.
+
+##### Testing
+
+- *testCreate* tests whether the Stack constructor creates a stack whose top node is null.
+- *testPush* tests whether values can be successfully pushed onto the top of the stack.
+- *testPop* tests whether pop() throws an exception if the stack is empty and whether it returns the correct value and removes the top node if the stack is not empty.
+- *testPeek* tests whether peek() throws an exception if the stack is empty and whether it returns the correct value if the stack is not empty.
+- *testIsEmpty* tests whether isEmpty() returns true for an empty stack and false for a non-empty one.
+
+#### Queue.java
+
+- Properties:
+  - Node `front`
+  - Node `rear`
+- Constructor
+  - *Queue* creates a new queue with a null front and rear
+- Methods
+  - *enqueue(int value)* creates a node whose value is the provided value and inserts it at the rear of the queue.
+  - *dequeue()* removes the front node of the queue and returns its value. Throws an exception if the queue is empty.
+  - *peek()* returns the value of the front node of the queue without modifying the queue. Throws an exception if the queue is empty.
+  - *isEmpty()* returns `true` if the queue is empty and `false` if it is not.
+
+##### Testing
+
+- *testCreate* tests whether the Queue constructor creates a queue whose front and rear nodes are null.
+- *testEnqueue* tests whether values can be successfully enqueued at the rear of the queue.
+- *testDequeue* tests whether dequeue() throws an exception if the queue is empty and whether it returns the correct value and removes the front node if the queue is not empty.
+- *testPeek* tests whether peek() throws an exception if the queue is empty and whether it returns the correct value if the queue is not empty.
+- *testIsEmpty* tests whether isEmpty() returns true for an empty queue and false for a non-empty one.
