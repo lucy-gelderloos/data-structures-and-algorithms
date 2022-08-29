@@ -19,9 +19,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 - Constructor
   - *LinkedList* creates a new linked list with a head node whose value is null
 - Methods
-  - *insert(int value)* creates a new node whose value is the provided integer and inserts it at the beginning of the list. If the list is empty, becomes the new head node.
-  - *includes(int value)* returns `true` if the value of any node in the list matches the provided integer and `false` if not.
-  - *toString()* iterates through the list and returns a string containing every value and ending in "NULL", formatted as follows: "{<value of head node>} -> {<value of second node>} -> {<value of third node>} -> ... -> {<value of tail node>} -> NULL". If the list is empty, returns "NULL".
+  - *insert(int value)* creates a new node whose value is the provided integer and inserts it at the beginning of the list. If the list is empty, becomes the new head node. Efficiency: O(1)
+  - *includes(int value)* returns `true` if the value of any node in the list matches the provided integer and `false` if not. Efficiency: O(n)
+  - *toString()* iterates through the list and returns a string containing every value and ending in "NULL", formatted as follows: "{<value of head node>} -> {<value of second node>} -> {<value of third node>} -> ... -> {<value of tail node>} -> NULL". If the list is empty, returns "NULL". Efficiency: O(n)
 
 #### Node.java
 
@@ -46,9 +46,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### LinkedList.java
 
 - Methods
-  - *append(int value)* creates a new node whose value is the provided integer and inserts it at the end of the list
-  - *insertBefore(int value, int targetValue)* creates a new node whose value is the provided integer and inserts it before the first node whose value is the provided target value. Throws an exception if the list is empty or if the target value is not in the list.
-  - *insertAfter(int value, int targetValue)* creates a new node whose value is the provided integer and inserts it after the first node whose value is the provided target value. Throws an exception if the list is empty or if the target value is not in the list.
+  - *append(int value)* creates a new node whose value is the provided integer and inserts it at the end of the list. Efficiency: O(n)
+  - *insertBefore(int value, int targetValue)* creates a new node whose value is the provided integer and inserts it before the first node whose value is the provided target value. Throws an exception if the list is empty or if the target value is not in the list. Efficiency: O(n)
+  - *insertAfter(int value, int targetValue)* creates a new node whose value is the provided integer and inserts it after the first node whose value is the provided target value. Throws an exception if the list is empty or if the target value is not in the list. Efficiency: O(n)
 
 #### Testing
 
@@ -65,8 +65,8 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### LinkedList.java
 
 - Methods
-
-  - *kthFromEnd(int k)* returns the value of the node that is k nodes from the end of the list. Throws an exception if the provided k value is larger than the length of the list.
+  - *kthFromEnd(int k)* uses a while loop to add a `previous` property to each node, pointing at the previous node. When the last node is reached, starts a for loop that runs for `k` iterations while moving back through the list using the new `previous` property on each node. Returns the value that is `k` nodes from the end. Throws an exception if the provided k value is larger than the length of the list. Efficiency: O(n).
+  - To do: refactor to account for if nodes already have a previous property.
 
 #### Testing
 
@@ -85,18 +85,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 #### LinkedList.java
 
 - Methods
-  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null.
-  - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.
-
-#### Testing
-
-[//]: # (TODO: describe tests)
-
-#### LinkedList.java
-
-- Methods
-  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null.
-  - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.
+  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null. Efficiency: O(n^2) because calls *append* to add the value; refactor to improve efficiency.
+  - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.  Efficiency: O(n^2) because calls *append* to add the value; refactor to improve efficiency.
+  - To do: refactor to reduce size (do not call *append*)
 
 #### Testing
 
@@ -117,10 +108,10 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 - Constructor
   - *Stack* creates a new stack with a null top
 - Methods
-  - *push(int value)* creates a node whose value is the provided value and inserts it at the top of the stack.
-  - *pop()* removes the top node of the stack and returns its value. Throws an exception if the stack is empty.
-  - *peek()* returns the value of the top node of the stack without modifying the stack. Throws an exception if the stack is empty.
-  - *isEmpty()* returns `true` if the stack is empty and `false` if it is not.
+  - *push(int value)* creates a node whose value is the provided value and inserts it at the top of the stack. Efficiency: O(1)
+  - *pop()* removes the top node of the stack and returns its value. Throws an exception if the stack is empty. Efficiency: O(1)
+  - *peek()* returns the value of the top node of the stack without modifying the stack. Throws an exception if the stack is empty. Efficiency: O(1)
+  - *isEmpty()* returns `true` if the stack is empty and `false` if it is not. Efficiency: O(1)
 
 ##### Testing
 
@@ -138,10 +129,10 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 - Constructor
   - *Queue* creates a new queue with a null front and rear
 - Methods
-  - *enqueue(int value)* creates a node whose value is the provided value and inserts it at the rear of the queue.
-  - *dequeue()* removes the front node of the queue and returns its value. Throws an exception if the queue is empty.
-  - *peek()* returns the value of the front node of the queue without modifying the queue. Throws an exception if the queue is empty.
-  - *isEmpty()* returns `true` if the queue is empty and `false` if it is not.
+  - *enqueue(int value)* creates a node whose value is the provided value and inserts it at the rear of the queue. Efficiency: O(1)
+  - *dequeue()* removes the front node of the queue and returns its value. Throws an exception if the queue is empty. Efficiency: O(1)
+  - *peek()* returns the value of the front node of the queue without modifying the queue. Throws an exception if the queue is empty. Efficiency: O(1)
+  - *isEmpty()* returns `true` if the queue is empty and `false` if it is not. Efficiency: O(1)
 
 ##### Testing
 
