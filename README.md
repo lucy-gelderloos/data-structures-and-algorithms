@@ -10,3 +10,5 @@
 6. [Add to linked lists](/java/datastructures/README.md)
 7. [Find kth value from end of list](/java/datastructures/README.md)
 8. [Zip Linked Lists](/java/datastructures/README.md)
+9. Mock whiteboard interviews
+10. [Stacks and Queues](/java/datastructures/README.md)
