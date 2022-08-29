@@ -16,7 +16,7 @@ public class StackTest
 
     Stack testStack = new Stack();
 
-    // after pushing a value onto the stack, is that value the value of the list's top node?
+    // after pushing a value onto the stack, is that value the value of the stack's top node?
     testStack.push(1);
     assertEquals(1,testStack.getTop().getValue());
 

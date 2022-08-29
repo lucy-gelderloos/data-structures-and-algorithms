@@ -1,5 +1,7 @@
 package datastructures.linkedlist;
 
+import static java.util.Objects.isNull;
+
 public class Queue {
   private Node front = new Node();
   private Node rear = new Node();
@@ -12,20 +14,32 @@ public class Queue {
   public void enqueue(int value) {
     // convert provided value to node & add to the end of the list
     Node newNode = new Node(value);
-    this.rear.setNext(newNode);
+    if(isNull(this.front)){
+      this.front = newNode;
+    } else {
+      this.rear.setNext(newNode);
+    }
+    this.rear = newNode;
   }
 
   public int dequeue() throws Exception {
     // Returns: the value from node from the front of the queue
     // Removes the node from the front of the queue
     // Should raise exception when called on empty queue
+    int returnValue;
     if(this.isEmpty() == true){
       throw new Exception("Cannot dequeue. The Queue is empty.");
     } else {
-      Node prevFrontNode = this.front;
-      this.front = prevFrontNode.getNext();
-      prevFrontNode.setNext(null);
-      return prevFrontNode.getValue();
+      returnValue = this.front.getValue();
+      if(this.front == this.rear) {
+        this.front = null;
+        this.rear = null;
+      } else {
+        Node dequeuedNode = this.front;
+        this.front = dequeuedNode.getNext();
+        dequeuedNode.setNext(null);
+      }
+      return returnValue;
     }
   }
 
@@ -39,7 +53,9 @@ public class Queue {
 
   public boolean isEmpty() {
     // Returns: Boolean indicating whether the queue is empty
-    return this.front != null;
+    if(this.getFront() != null) {
+      return false;
+    } else return true;
   }
 
   public Node getFront() {
