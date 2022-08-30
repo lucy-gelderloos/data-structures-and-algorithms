@@ -19,14 +19,14 @@ public class QueueTest
 
     // after calling enqueue on an empty queue, is the provided value the value of the new front/rear node?
     testQueue.enqueue(1);
-    assertEquals(1,testQueue.getFront().getValue());
-    assertEquals(1,testQueue.getRear().getValue());
+    assertEquals(1,testQueue.getFront().getData());
+    assertEquals(1,testQueue.getRear().getData());
 
     // after enqueueing more values, are the values of the front and rear nodes still correct?
     testQueue.enqueue(2);
     testQueue.enqueue(3);
-    assertEquals(1,testQueue.getFront().getValue());
-    assertEquals(3,testQueue.getRear().getValue());
+    assertEquals(1,testQueue.getFront().getData());
+    assertEquals(3,testQueue.getRear().getData());
   }
 
   @Test void testDequeue() throws Exception {
@@ -42,8 +42,8 @@ public class QueueTest
 
     // after calling dequeue once, are the front and rear values correct?
     testQueue.dequeue();
-    assertEquals(2,testQueue.getFront().getValue());
-    assertEquals(3,testQueue.getRear().getValue());
+    assertEquals(2,testQueue.getFront().getData());
+    assertEquals(3,testQueue.getRear().getData());
 
     // can the list be depopulated by calling dequeue multiple times?
     testQueue.dequeue();

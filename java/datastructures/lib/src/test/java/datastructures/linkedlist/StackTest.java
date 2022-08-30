@@ -18,17 +18,17 @@ public class StackTest
 
     // after pushing a value onto the stack, is that value the value of the stack's top node?
     testStack.push(1);
-    assertEquals(1,testStack.getTop().getValue());
+    assertEquals(1,testStack.getTop().getData());
 
     // after pushing multiple values onto the stack, is the top value correct?
     testStack.push(2);
     testStack.push(3);
-    assertEquals(3,testStack.getTop().getValue());
-    assertEquals(2,testStack.getTop().getNext().getValue());
+    assertEquals(3,testStack.getTop().getData());
+    assertEquals(2,testStack.getTop().getNext().getData());
   }
 
   @Test void testPop() throws Exception {
-    Stack testStack = new Stack();
+    Stack<Integer> testStack = new Stack<>();
     // does it throw an exception if the stack is empty?
     Exception exception = assertThrows(Exception.class, () -> testStack.pop());
     assertEquals("Cannot pop. The Stack is empty.", exception.getMessage());
@@ -46,7 +46,7 @@ public class StackTest
     assertEquals(2,poppedVal2);
 
     // after two pops, is the top value correct?
-    assertEquals(1,testStack.getTop().getValue());
+    assertEquals(1,testStack.getTop().getData());
 
     testStack.pop();
     // after every value is popped off, is the stack's top node null?

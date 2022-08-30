@@ -1,19 +1,19 @@
 package datastructures.linkedlist;
 
-public class Node {
-  private int value;
+public class Node<T> {
+  private T data;
   private Node next;
   private Node prev;
 
 //  https://www.javatpoint.com/java-program-to-create-a-singly-linked-list-of-n-nodes-and-count-the-number-of-nodes
 
-  public Node(int value){
-    this.value = value;
+  public Node(T data){
+    this.data = data;
   }
 
-  public Node() {
-    this.value = 0;
-  }
+//  public Node(){
+//    this.data = null;
+//  }
 
   public void setNext(Node next) {
     this.next = next;
@@ -23,12 +23,12 @@ public class Node {
     return next;
   }
 
-  public void setValue(int value) {
-    this.value = value;
+  public void setData(T data) {
+    this.data = data;
   }
 
-  public int getValue() {
-    return value;
+  public T getData() {
+    return data;
   }
 
   public Node getPrev() { return prev; }
