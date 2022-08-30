@@ -11,9 +11,9 @@ public class Queue<T> {
     this.rear = null;
   }
 
-  public void enqueue(int value) {
+  public void enqueue(T data) {
     // convert provided value to node & add to the end of the list
-    Node newNode = new Node(value);
+    Node<T> newNode = new Node<>(data);
     if(isNull(this.front)){
       this.front = newNode;
     } else {
