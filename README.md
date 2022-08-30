@@ -12,3 +12,4 @@
 8. [Zip Linked Lists](/java/datastructures/README.md)
 9. Mock whiteboard interviews
 10. [Stacks and Queues](/java/datastructures/README.md)
+10. [PseudoQueue](/java/datastructures/README.md)
