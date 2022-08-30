@@ -141,3 +141,28 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 - *testDequeue* tests whether dequeue() throws an exception if the queue is empty and whether it returns the correct value and removes the front node if the queue is not empty.
 - *testPeek* tests whether peek() throws an exception if the queue is empty and whether it returns the correct value if the queue is not empty.
 - *testIsEmpty* tests whether isEmpty() returns true for an empty queue and false for a non-empty one.
+
+### Challenge 11
+
+Create a PseudoQueue class that behaves like a queue externally, but internally uses two stacks to manage nodes.
+
+Location: `src/main/java/codechallenges/datastructures/linkedlist`
+
+Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+
+#### PseudoQueue.java
+
+- Properties
+  - Stack<T> `forwardStack`
+  - Stack<T> `backwardStack`
+- Constructor
+  - *PseudoQueue* creates a new pseudoqueue with forwardStack and backwardStack properties; each stack's top node is null.
+- Methods
+  - *enqueue(T value)* creates a new node whose value is the provided value and inserts it at the top of the backwardStack and the bottom of the forwardStack. Efficiency: O(n)
+  - *dequeue(T value)* removes the node at the "front" of the pseudoqueue (i.e., the node at the top of the forwardStack and the bottom of the backwardStack) and returns its value. Throws an exception if the pseudoqueue is empty. Efficiency: O(n)
+
+#### Testing
+
+- *testCreatePseudoqueue* confirms that a new pseudoqueue will have a forwardStack and backwardStack property, and that the top node of each stack is null.
+- *testEnqueue* confirms that the provided value is added to the correct position in both stacks.
+- *testDequeue* confirms that calling dequeue on a pseudoqueue results in an exception if the pseudoqueue is empty, and removes the correct node/returns the correct value if not.
