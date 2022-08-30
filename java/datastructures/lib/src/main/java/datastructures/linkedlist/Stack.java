@@ -5,10 +5,10 @@ package datastructures.linkedlist;
 
 import static java.util.Objects.isNull;
 
-public class Stack {
-  private Node top;
+public class Stack<T> {
+  private Node<T> top;
 
-  public Stack(Node top) {
+  public Stack(Node<T> top) {
     this.top = top;
   }
 
@@ -16,15 +16,15 @@ public class Stack {
     this.top = null;
   }
 
-  public void push(int value) {
+  public void push(T data) {
     // adds a new node with that value to the top of the stack with an O(1) Time performance.
     // TODO: make generic
-    Node newNode = new Node(value);
+    Node<T> newNode = new Node<>(data);
     newNode.setNext(this.top);
     this.top = newNode;
   }
 
-  public int pop() throws Exception {
+  public T pop() throws Exception {
     // Returns: the value from node from the top of the stack
     // Removes the node from the top of the stack
     // Should raise exception when called on empty stack
@@ -32,7 +32,7 @@ public class Stack {
     if(this.isEmpty() == true) {
       throw new Exception("Cannot pop. The Stack is empty.");
     } else {
-      Node prevTopNode = this.top;
+      Node<T> prevTopNode = this.top;
       if(isNull(prevTopNode.getNext())) {
         this.top = null;
       } else {
@@ -40,17 +40,17 @@ public class Stack {
         this.top = prevNextNode;
       }
       prevTopNode.setNext(null);
-      return prevTopNode.getValue();
+      return prevTopNode.getData();
     }
   }
 
-  public int peek() throws Exception {
+  public T peek() throws Exception {
     // Returns: Value of the node located at the top of the stack
     // Should raise exception when called on empty stack
     if(this.isEmpty() == true) {
       throw new Exception("Cannot peek. The Stack is empty.");
     } else {
-      return this.top.getValue();
+      return this.top.getData();
     }
   }
 
@@ -60,11 +60,11 @@ public class Stack {
     } else return true;
   }
 
-  public Node getTop() {
+  public Node<T> getTop() {
     return top;
   }
 
-  public void setTop(Node head) {
+  public void setTop(Node<T> top) {
     this.top = top;
   }
 }

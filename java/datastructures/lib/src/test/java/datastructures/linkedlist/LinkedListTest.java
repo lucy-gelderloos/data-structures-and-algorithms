@@ -13,15 +13,14 @@ public class LinkedListTest
     }
 
     @Test void testCreateNode() {
-      Node sut1 = new Node(3);
-      Node sut2 = new Node();
+      Node<Integer> sutInt = new Node(3);
+      Node<String> sutString = new Node("Pippin");
 
-      assertEquals(3, sut1.getValue());
-      assertEquals(0, sut2.getValue());
+      assertEquals(3, sutInt.getData());
+      assertEquals("Pippin", sutString.getData());
     }
 
     @Test void testInsert() {
-      // not sure how to test this other than using toString, but I don't like having a test depend on another method in the class I'm testing
       LinkedList sut = new LinkedList();
       sut.insert(7);
       sut.insert(10);
@@ -32,7 +31,7 @@ public class LinkedListTest
       LinkedList sut = new LinkedList();
       sut.insert(7);
       sut.insert(10);
-      assertEquals(7,sut.getHead().getNext().getValue());
+      assertEquals(7,sut.getHead().getNext().getData());
     }
 
     @Test void testIncludes() {
@@ -59,7 +58,7 @@ public class LinkedListTest
       testList.insert(7);
       testList.append(2);
       assertEquals("{7} -> {6} -> {5} -> {4} -> {3} -> {2} -> NULL",testList.toString());
-      assertEquals(7,testList.getHead().getValue());
+      assertEquals(7,testList.getHead().getData());
     }
 
     @Test void testInsertBefore() throws Exception {
