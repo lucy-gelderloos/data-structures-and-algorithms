@@ -10,7 +10,7 @@ public class AnimalShelter {
 
   public void enqueue(String name,String type) throws Exception {
     if(!type.equals("dog") && !type.equals("cat")) {
-      throw new Exception("Please add a dog or cat");
+      throw new Exception("Please add a dog or cat.");
     } else {
       Animal newAnimal = new Animal(name, type);
       Node<Animal> newAnimalNode = new Node<>(newAnimal);
