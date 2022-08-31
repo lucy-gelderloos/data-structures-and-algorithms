@@ -222,6 +222,7 @@ public class LinkedList<T>
   }
 
   public static boolean validateBrackets(String inputString) throws Exception {
+    // TODO: exception for strings with no brackets
     Stack<Character> holdingStack = new Stack<>();
 
     ArrayList<Character> openingBrackets = new ArrayList<>();
@@ -234,14 +235,22 @@ public class LinkedList<T>
     closingBrackets.add('}');
     closingBrackets.add(')');
 
+    if(inputString.length() == 0) {
+      throw new Exception("The string is empty.");
+    }
+
+    int bracketCounter = 0;
+
     for(int i = 0; i < inputString.length(); i++) {
       Character currentChar = inputString.charAt(i);
       if (openingBrackets.contains(currentChar)) {
         // if the character is an opening bracket, push it onto the top of the holding stack
         holdingStack.push(currentChar);
+        bracketCounter++;
       } else if (closingBrackets.contains(currentChar)) {
-        // if the character is a closing bracket, find the corresponding opening bracket
+        // if the character is a closing bracket, look up the corresponding opening bracket
         Character matchingBracket = openingBrackets.get(closingBrackets.indexOf(currentChar));
+        bracketCounter++;
         if (holdingStack.isEmpty() || matchingBracket != holdingStack.peek()) {
           // if the holding stack is empty or the top value isn't the right opening bracket, return false
           return false;
@@ -251,8 +260,10 @@ public class LinkedList<T>
         }
       }
     }
-    // if, after iterating through the input string, there are still unmatched brackets left in the holding stack, return false
-    if(!holdingStack.isEmpty()) {
+    if(bracketCounter == 0) {
+      throw new Exception("There are no brackets in the string.");
+    } else if(!holdingStack.isEmpty()) {
+      // if, after iterating through the input string, there are still unmatched brackets left in the holding stack, return false
       return false;
     } else return true;
   }

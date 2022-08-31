@@ -189,6 +189,20 @@ public class LinkedListTest
       Exception exception = assertThrows(Exception.class, () -> LinkedList.zipLists(list4, list5));
       assertEquals("Both lists are empty.", exception.getMessage());
     }
+
+    @Test void testValidateBrackets() throws Exception {
+      assertTrue(LinkedList.validateBrackets("[]"));
+      assertTrue(LinkedList.validateBrackets("()this[is{valid}]{}"));
+      assertFalse(LinkedList.validateBrackets("()this[is{not)valid}]}"));
+      assertFalse(LinkedList.validateBrackets("()))))"));
+      assertFalse(LinkedList.validateBrackets("((()"));
+      assertFalse(LinkedList.validateBrackets("("));
+
+      Exception emptyException = assertThrows(Exception.class, () -> LinkedList.validateBrackets(""));
+      assertEquals("The string is empty.", emptyException.getMessage());
+
+      Exception noBracketsException = assertThrows(Exception.class, () -> LinkedList.validateBrackets("abc"));
+      assertEquals("There are no brackets in the string.", noBracketsException.getMessage());
+    }
+
 }
-
-
