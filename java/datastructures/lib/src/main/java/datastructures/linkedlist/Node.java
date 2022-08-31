@@ -2,8 +2,8 @@ package datastructures.linkedlist;
 
 public class Node<T> {
   private T data;
-  private Node next;
-  private Node prev;
+  private Node<T> next;
+  private Node<T> prev;
 
 //  https://www.javatpoint.com/java-program-to-create-a-singly-linked-list-of-n-nodes-and-count-the-number-of-nodes
 
@@ -15,11 +15,11 @@ public class Node<T> {
 //    this.data = null;
 //  }
 
-  public void setNext(Node next) {
+  public void setNext(Node<T> next) {
     this.next = next;
   }
 
-  public Node getNext() {
+  public Node<T> getNext() {
     return next;
   }
 
@@ -31,9 +31,9 @@ public class Node<T> {
     return data;
   }
 
-  public Node getPrev() { return prev; }
+  public Node<T> getPrev() { return prev; }
 
-  public void setPrev(Node prev) {
+  public void setPrev(Node<T> prev) {
     this.prev = prev;
   }
 }
