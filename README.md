@@ -13,3 +13,4 @@
 9. Mock whiteboard interviews
 10. [Stacks and Queues](/java/datastructures/README.md)
 10. [PseudoQueue](/java/datastructures/README.md)
+10. [AnimalShelter](/java/datastructures/README.md)

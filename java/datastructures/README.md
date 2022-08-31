@@ -8,9 +8,9 @@
 
 Create a Node class to hold a value and a pointer to another node, and a LinkedList class that creates a list of linked nodes.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -39,9 +39,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 
 In the LinkedList class, create a method to append a node with the provided value to the end of the list and to insert nodes with the provided value either before or after a target value.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -58,9 +58,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 
 In the LinkedList class, create a method called kthFromEnd that returns the value that is k nodes from the end of a linked list.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -78,9 +78,9 @@ In the LinkedList class, create a method that zips two linked lists together and
 
 *Stretch goal:* create a method that zips two sorted lists together and returns a sorted list.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -97,9 +97,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 
 Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Location: `src/main/java/codechallenges/datastructures/linkedlist/Stack.java`; `src/main/java/codechallenges/datastructures/linkedlist/Queue.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/StackTest.java`; `src/test/java/codechallenges/datastructures/linkedlist/QueueTest.java`
 
 #### Stack.java
 
@@ -146,9 +146,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 
 Create a PseudoQueue class that behaves like a queue externally, but internally uses two stacks to manage nodes.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist`
+Location: `src/main/java/codechallenges/datastructures/linkedlist/PseudoQueue.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist`
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/PseudoQueueTest.java`
 
 #### PseudoQueue.java
 
@@ -166,3 +166,33 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist`
 - *testCreatePseudoqueue* confirms that a new pseudoqueue will have a forwardStack and backwardStack property, and that the top node of each stack is null.
 - *testEnqueue* confirms that the provided value is added to the correct position in both stacks.
 - *testDequeue* confirms that calling dequeue on a pseudoqueue results in an exception if the pseudoqueue is empty, and removes the correct node/returns the correct value if not.
+
+### Challenge 12
+
+Create an AnimalShelter class that holds dog and cat objects. The class should be a Queue, utilizing first in/first out principles, but users are able to specify whether they want a dog or a cat.
+
+Location: `src/main/java/codechallenges/datastructures/linkedlist/AnimalShelter.java`
+
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/AnimalShelter.java`
+
+#### Whiteboard
+
+![Whiteboard part 1](./src/main/java/resources/challenge-12-whiteboard-01.png)
+![Whiteboard part 2](./src/main/java/resources/challenge-12-whiteboard-02.png)
+
+#### AnimalShelter.java
+
+- Properties
+  - *Node<Animal>* front
+  - *Node<Animal>* rear
+- Constructor
+  - *AnimalShelter* creates a new AnimalShelter with null front and rear nodes.
+- Methods
+  - *enqueue(String name, String type)* creates a new Animal object and sets it as the value of a new node, then inserts that node at the rear of the AnimalShelter queue. Efficiency: O(1)
+  - *dequeue(String type)* starts at the front of the AnimalShelter queue and finds the first node whose Animal object's type property matches the provided type. It returns the value of that node and removes it from the queue. Efficiency: O(n)
+
+#### Testing
+
+- *testCreateAnimalShelter* confirms that a new AnimalShelter will have a front and rear property, both of which are null.
+- *testEnqueue* confirms that the provided animal is added to the correct position in the queue.
+- *testDequeue* confirms that calling dequeue on an AnimalShelter removes the correct node and returns its value.
