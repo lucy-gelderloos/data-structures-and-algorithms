@@ -25,11 +25,11 @@ public class AnimalShelterTest
     assertEquals("Kate",sutShelter.getFront().getData().getName());
 
     // is the last animal enqueued at the rear of the queue?
-    assertEquals("Pippin",sutShelter.getFront().getData().getName());
+    assertEquals("Pippin",sutShelter.getRear().getData().getName());
 
     // if someone tries to add an animal whose type is not dog or cat, does it throw an exception?
     Exception exception = assertThrows(Exception.class, () -> sutShelter.enqueue("Elizabeth","Lizard"));
-    assertEquals("Please add a dog or a cat.", exception.getMessage());
+    assertEquals("Please add a dog or cat.", exception.getMessage());
   }
 
   @Test void testDequeue() throws Exception {
