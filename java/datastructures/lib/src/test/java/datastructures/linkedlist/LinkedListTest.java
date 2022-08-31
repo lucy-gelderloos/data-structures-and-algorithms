@@ -189,5 +189,6 @@ public class LinkedListTest
       Exception exception = assertThrows(Exception.class, () -> LinkedList.zipLists(list4, list5));
       assertEquals("Both lists are empty.", exception.getMessage());
     }
-
 }
+
+
