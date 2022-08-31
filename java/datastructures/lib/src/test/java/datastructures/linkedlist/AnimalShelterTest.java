@@ -47,6 +47,8 @@ public class AnimalShelterTest
     // if we try to dequeue a dog, does it return the right animal?
     Animal dequeuedDog = sutShelter.dequeue("dog");
     assertEquals("Kate",dequeuedDog.getName());
+
+    // TODO: test for exceptions
   }
 
 }

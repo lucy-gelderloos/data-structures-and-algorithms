@@ -3,14 +3,9 @@ package datastructures.linkedlist;
 public class AnimalShelter {
   private Node<Animal> front;
   private Node<Animal> rear;
-  private int catCounter;
-  private int dogCounter;
-
   public AnimalShelter() {
     this.front = null;
     this.rear = null;
-//    this.catCounter = 0;
-//    this.dogCounter = 0;
   }
 
   public void enqueue(String name,String type) throws Exception {
@@ -82,19 +77,4 @@ public class AnimalShelter {
     this.rear = rear;
   }
 
-  public int getCatCounter() {
-    return catCounter;
-  }
-
-  public void setCatCounter(int catCounter) {
-    this.catCounter = catCounter;
-  }
-
-  public int getDogCounter() {
-    return dogCounter;
-  }
-
-  public void setDogCounter(int dogCounter) {
-    this.dogCounter = dogCounter;
-  }
 }
