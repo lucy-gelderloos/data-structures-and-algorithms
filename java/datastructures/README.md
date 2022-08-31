@@ -196,3 +196,34 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/AnimalShelter.jav
 - *testCreateAnimalShelter* confirms that a new AnimalShelter will have a front and rear property, both of which are null.
 - *testEnqueue* confirms that the provided animal is added to the correct position in the queue.
 - *testDequeue* confirms that calling dequeue on an AnimalShelter removes the correct node and returns its value.
+
+### Challenge 13
+
+Create a method called validate brackets, which takes in a string and returns true if all brackets in the string are balanced (i.e., all opening brackets have a matching closing bracket and brackets are not overlapping).
+
+Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+
+Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+
+#### Whiteboard
+
+![Whiteboard part 1](./src/main/java/resources/challenge-13-whiteboard-01.png)
+![Whiteboard part 2](./src/main/java/resources/challenge-13-whiteboard-02.png)
+![Whiteboard part 3](./src/main/java/resources/challenge-13-whiteboard-03.png)
+
+#### LinkedList.java
+
+- Method
+  - *validateBrackets(String inputString)*
+    1. Throw an exception if the string is empty.
+    2. Create a holding stack, an arrayList of opening brackets, an arrayList of closing brackets, and a bracket counter. Each closing bracket should be at the same index in its arrayList as the matching opening bracket is in its arrayList. The bracket counter starts at 0.
+    3. Loop through the provided string character by character.
+    4. If the current character is an opening bracket, add it to the top of the holding stack and move to the next character. Increment the bracket counter.
+    5. If the current character is a closing bracket, increment the bracket counter and check if the top value of the holding stack is the matching opening bracket. If yes, pop that value off the holding stack. If no (including if the holding stack is empty), return false.
+    6. After the for loop has iterated through the whole string, if the bracket counter is still 0, throw an exception with message "There are no brackets in the string." If there are still values in the holding stack (i.e., not every opening bracket had a matching closing bracket), return false. Otherwise, return true.
+  - Time Efficiency: O(n)
+  - Space Efficiency: O(n)
+
+#### Testing
+
+- *testValidateBrackets* provides several strings and confirms they return true or false as expected; also confirms that empty strings and strings with no brackets return appropriate exceptions.

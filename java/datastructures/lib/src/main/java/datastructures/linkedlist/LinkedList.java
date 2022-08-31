@@ -223,6 +223,11 @@ public class LinkedList<T>
 
   public static boolean validateBrackets(String inputString) throws Exception {
     // TODO: exception for strings with no brackets
+
+    if(inputString.length() == 0) {
+      throw new Exception("The string is empty.");
+    }
+
     Stack<Character> holdingStack = new Stack<>();
 
     ArrayList<Character> openingBrackets = new ArrayList<>();
@@ -234,10 +239,6 @@ public class LinkedList<T>
     closingBrackets.add(']');
     closingBrackets.add('}');
     closingBrackets.add(')');
-
-    if(inputString.length() == 0) {
-      throw new Exception("The string is empty.");
-    }
 
     int bracketCounter = 0;
 
@@ -261,6 +262,7 @@ public class LinkedList<T>
       }
     }
     if(bracketCounter == 0) {
+      // if, after iterating through the input string, the bracket counter is still 0 (i.e., no opening OR closing brackets have been found), throw an exception
       throw new Exception("There are no brackets in the string.");
     } else if(!holdingStack.isEmpty()) {
       // if, after iterating through the input string, there are still unmatched brackets left in the holding stack, return false
