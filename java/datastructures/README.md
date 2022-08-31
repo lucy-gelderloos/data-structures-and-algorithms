@@ -175,6 +175,11 @@ Location: `src/main/java/codechallenges/datastructures/linkedlist/AnimalShelter.
 
 Tests: `src/test/java/codechallenges/datastructures/linkedlist/AnimalShelter.java`
 
+#### Whiteboard
+
+![Whiteboard part 1](./src/main/java/resources/challenge-12-whiteboard-01.png)
+![Whiteboard part 2](./src/main/java/resources/challenge-12-whiteboard-02.png)
+
 #### AnimalShelter.java
 
 - Properties
