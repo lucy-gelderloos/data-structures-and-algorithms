@@ -26,6 +26,7 @@ public class BinarySearchTree extends BinaryTree {
         root.setRight(newNode);
       } else addNode(root.getRight(),newNode);
     }
+    // if the new value is neither less than nor greater than, do nothing
   }
 
   public boolean contains(int value) {

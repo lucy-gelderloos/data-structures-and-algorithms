@@ -1,6 +1,5 @@
 package datastructures.trees;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -73,6 +72,44 @@ public class TreesTest {
     expectedReturn.add(1);
 
     assertEquals(expectedReturn,testTree.getValuesPostOrder(),"postOrder");
+  }
+
+  @Test void testAdd() {
+    int[] searchTreeValues = new int[]{4,8,15,16,22,23,27,42,85,105};
+    BinarySearchTree testSearchTree = new BinarySearchTree();
+    ArrayList<Integer> expectedValues = new ArrayList<>();
+    for (int value : searchTreeValues) {
+      testSearchTree.add(value);
+      expectedValues.add(value);
+    }
+
+    int[] searchTreeValuesReversed = new int[]{105,85,42,27,23,22,16,15,8,4};
+    BinarySearchTree testSearchTreeReversed = new BinarySearchTree();
+    for (int value : searchTreeValuesReversed) {
+      testSearchTreeReversed.add(value);
+    }
+
+    int[] searchTreeValuesScrambled = new int[]{23,85,15,8,27,22,105,4,16,42};
+    BinarySearchTree testSearchTreeScrambled = new BinarySearchTree();
+    for (int value : searchTreeValuesScrambled) {
+      testSearchTreeScrambled.add(value);
+    }
+
+    assertEquals(expectedValues,testSearchTree.getValuesInOrder());
+    assertEquals(expectedValues,testSearchTreeReversed.getValuesInOrder());
+    assertEquals(expectedValues,testSearchTreeScrambled.getValuesInOrder());
+  }
+
+  @Test void testContains() {
+    int[] searchTreeValues = new int[]{4,8,15,16,22,23,27,42,85,105};
+    BinarySearchTree testSearchTree = new BinarySearchTree();
+    for (int value : searchTreeValues) {
+      testSearchTree.add(value);
+    }
+
+    assertTrue(testSearchTree.contains(16));
+    assertTrue(testSearchTree.contains(42));
+    assertFalse(testSearchTree.contains(43));
   }
 
 }
