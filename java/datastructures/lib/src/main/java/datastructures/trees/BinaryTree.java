@@ -13,7 +13,7 @@ public class BinaryTree {
     this.root = null;
   }
 
-  public ArrayList<Integer> getValuesPreorder() {
+  public ArrayList<Integer> getValuesPreOrder() {
     ArrayList<Integer> values = new ArrayList<>();
     preOrder(this.root, values);
     return values;
@@ -44,17 +44,17 @@ public class BinaryTree {
       return;
       }
     if(!isNull(root.getLeft())) {
-      preOrder(root.getLeft(), values);
+      inOrder(root.getLeft(), values);
     }
     values.add(root.getValue());
     if(!isNull(root.getRight())) {
-      preOrder(root.getRight(), values);
+      inOrder(root.getRight(), values);
     }
   }
 
   public ArrayList<Integer> getValuesPostOrder() {
     ArrayList<Integer> values = new ArrayList<>();
-    inOrder(this.root, values);
+    postOrder(this.root, values);
     return values;
   }
 
@@ -63,10 +63,10 @@ public class BinaryTree {
       return;
       }
     if(!isNull(root.getLeft())) {
-      preOrder(root.getLeft(), values);
+      postOrder(root.getLeft(), values);
     }
     if(!isNull(root.getRight())) {
-      preOrder(root.getRight(), values);
+      postOrder(root.getRight(), values);
     }
     values.add(root.getValue());
   }
