@@ -8,9 +8,9 @@
 
 Create a Node class to hold a value and a pointer to another node, and a LinkedList class that creates a list of linked nodes.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
+Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -39,9 +39,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.jav
 
 In the LinkedList class, create a method to append a node with the provided value to the end of the list and to insert nodes with the provided value either before or after a target value.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
+Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -58,9 +58,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.jav
 
 In the LinkedList class, create a method called kthFromEnd that returns the value that is k nodes from the end of a linked list.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
+Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -78,9 +78,9 @@ In the LinkedList class, create a method that zips two linked lists together and
 
 *Stretch goal:* create a method that zips two sorted lists together and returns a sorted list.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.java`
+Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 #### LinkedList.java
 
@@ -97,9 +97,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkeListTest.jav
 
 Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/Stack.java`; `src/main/java/codechallenges/datastructures/linkedlist/Queue.java`
+Location: `src/main/java/datastructures/linkedlist/Stack.java`; `src/main/java/datastructures/linkedlist/Queue.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/StackTest.java`; `src/test/java/codechallenges/datastructures/linkedlist/QueueTest.java`
+Tests: `src/test/java/datastructures/linkedlist/StackTest.java`; `src/test/java/datastructures/linkedlist/QueueTest.java`
 
 #### Stack.java
 
@@ -146,9 +146,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/StackTest.java`; 
 
 Create a PseudoQueue class that behaves like a queue externally, but internally uses two stacks to manage nodes.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/PseudoQueue.java`
+Location: `src/main/java/datastructures/linkedlist/PseudoQueue.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/PseudoQueueTest.java`
+Tests: `src/test/java/datastructures/linkedlist/PseudoQueueTest.java`
 
 #### PseudoQueue.java
 
@@ -171,9 +171,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/PseudoQueueTest.j
 
 Create an AnimalShelter class that holds dog and cat objects. The class should be a Queue, utilizing first in/first out principles, but users are able to specify whether they want a dog or a cat.
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/AnimalShelter.java`
+Location: `src/main/java/datastructures/linkedlist/AnimalShelter.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/AnimalShelter.java`
+Tests: `src/test/java/datastructures/linkedlist/AnimalShelter.java`
 
 #### Whiteboard
 
@@ -201,9 +201,9 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/AnimalShelter.jav
 
 Create a method called validate brackets, which takes in a string and returns true if all brackets in the string are balanced (i.e., all opening brackets have a matching closing bracket and brackets are not overlapping).
 
-Location: `src/main/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
 
-Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkedList.java`
+Tests: `src/test/java/datastructures/linkedlist/LinkedList.java`
 
 #### Whiteboard
 
@@ -227,3 +227,56 @@ Tests: `src/test/java/codechallenges/datastructures/linkedlist/LinkedList.java`
 #### Testing
 
 - *testValidateBrackets* provides several strings and confirms they return true or false as expected; also confirms that empty strings and strings with no brackets return appropriate exceptions.
+
+### Challenge 15
+
+Implement a binary tree and a binary search tree.
+
+Location: `src/main/java/datastructures/trees/Node.java`; `src/main/java/datastructures/trees/BinaryTree.java`; `src/main/java/datastructures/trees/BinarySearchTree.java`;
+
+Tests: `src/test/java/datastructures/trees/TreesTest.java`
+
+#### Node.java
+
+- Properties
+  - *T* value
+  - *Node<T>* left
+  - *Node<T>* right
+- Constructors
+  - *Node()* creates a new node whose value is null
+  - *Node(T value)* creates a new node whose value is the provided value
+
+#### BinaryTree.java
+
+- Properties
+  - *Node<T>* root
+- Constructors
+  - *BinaryTree()* creates a new binary tree whose root is null
+  - *BinaryTree(Node<T> root)* creates a new binary tree whose root is the provided node
+- Methods
+  - *getValuesPreOrder()* creates an empty ArrayList to hold the values generated while traversing the tree, then calls *preOrder*, passing in the list and the tree's root node.
+  - *preOrder(Node<T> root, ArrayList<T> values)* adds the value of the root node to the list of values, then checks if the root has a left child node. If yes, it calls itself on the root's left node and repeats the process; if no, it checks if the node has a right child node and if yes, calls itself on the root's right node. If both child nodes are empty, the function returns, until every node has been visited and its value has been recorded.
+  - *getValuesInOrder()* creates an empty ArrayList to hold the values generated while traversing the tree, then calls *inOrder*, passing in the list and the tree's root node.
+  - *inOrder(Node<T> root, ArrayList<T> values)* starts by checking for a left child node and proceeding down the tree until it finds a node with no left child. It adds the value of that node to the list of values, then checks if the node has a right child node. If yes, it checks that node for a left child, continuing the pattern until every node has been visited and its value has been recorded.
+  - *getValuesPostOrder()* creates an empty ArrayList to hold the values generated while traversing the tree, then calls *postOrder*, passing in the list and the tree's root node.
+  - *postOrder(Node<T> root, ArrayList<T> values)* starts by checking for a left child node and proceeding down the tree until it finds a node with no left child. It then checks if the node has a right child node; if yes, it moves to that child node and continues the process until it finds a node with no children. It adds the value of that node to the list of values, then continues the pattern until every node has been visited and its value has been recorded.
+
+#### BinarySearchTree.java
+
+- Extends BinaryTree
+- Properties
+  - inherits root from Binary Tree
+- Constructors
+  - *BinarySearchTree()* inherited from BinaryTree (creates a new tree whose root is null)
+  - *BinaryTree(Node<Integer> root)* creates a new binary search tree whose root is the provided node (the node's value must be an Integer)
+- Methods
+  - *add(Integer value)* creates a new node whose value is the provided Integer. If the root of the tree is null, sets the new node as the root; otherwise, calls *addNode* and passes in the root and the new node.
+  - *addNode(Node<Integer> root, Node<Integer> newNode)* checks whether the provided value is greater than or less than the value of the root node. (If neither - i.e., they are equal - the method returns.) If the value of the root is greater than the value of the new node, it then checks if the root's left child node is null; if yes, it sets the new node as the root's left child node, and if no, it calls itself on the left child node. The pattern repeats until the new node has been added to the tree such that it is greater than every node to its left and less than every node to its right.
+  - *contains(Integer value)* returns true if the provided Integer is the value of one of the nodes in the tree. It checks by looking at each node and determining whether its value is equal to, greater than, or less than the provided Integer. If the values are equal, it returns true. It returns false if: the current node has no children; the value of the current node is greater than the Integer and the current node has no left children; or the value of the current node is less than the Integer and the current node has no right children. Otherwise, it continues down the tree, choosing left or right child node depending on whether the value of the current node is greater or less than the integer.
+
+#### Testing
+
+- *testCreateTree* creates a BinaryTree with a null root, a BinaryTree with a single node, a BinarySearchTree with a null root, and a BinarySearchTree with a single node, then tests to confirm the root values are correct/null, as appropriate.
+- *testPreOrderTraversal*, *testInOrderTraversal*, and *testPostOrderTraversal*  call *getValuesPreOrder*, *getValuesInOrder*, *getValuesPostOrder*, respectively, and confirm that each method returns the expected values in the expected order.
+- *testAdd* creates three binary search trees with the same values provided in a different order, then traverses each tree to confirm that the values are all present in the expected position.
+- *testContains* creates a binary search tree, then confirms that calling contains() on that tree will return true if the provided value is in the tree, and false if it is not.
