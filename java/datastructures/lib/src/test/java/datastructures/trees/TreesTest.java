@@ -8,15 +8,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TreesTest {
 
+  @Test void testCreateTree() {
+    BinaryTree<Integer> nullTree = new BinaryTree<>();
+    Node<Integer> newNode = new Node<>(5);
+    BinaryTree<Integer> oneNodeTree = new BinaryTree<>(newNode);
+
+    BinarySearchTree nullSearchTree = new BinarySearchTree();
+    BinarySearchTree oneNodeSearchTree = new BinarySearchTree(newNode);
+
+    assertNull(nullTree.getRoot());
+    assertNull(nullSearchTree.getRoot());
+    assertEquals(5,oneNodeTree.getRoot().getValue().intValue());
+    assertEquals(5,oneNodeSearchTree.getRoot().getValue().intValue());
+  }
+
   @Test void testPreOrderTraversal() {
-    BinaryTree testTree = new BinaryTree();
-    testTree.setRoot(new Node(1));
-    testTree.getRoot().setLeft(new Node(2));
-    testTree.getRoot().setRight(new Node(3));
-    testTree.getRoot().getLeft().setLeft(new Node(4));
-    testTree.getRoot().getLeft().setRight(new Node(5));
-    testTree.getRoot().getRight().setLeft(new Node(6));
-    testTree.getRoot().getRight().setRight(new Node(7));
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(1));
+    testTree.getRoot().setLeft(new Node<>(2));
+    testTree.getRoot().setRight(new Node<>(3));
+    testTree.getRoot().getLeft().setLeft(new Node<>(4));
+    testTree.getRoot().getLeft().setRight(new Node<>(5));
+    testTree.getRoot().getRight().setLeft(new Node<>(6));
+    testTree.getRoot().getRight().setRight(new Node<>(7));
 
     ArrayList<Integer> expectedReturn = new ArrayList<>();
     expectedReturn.add(1);
@@ -31,14 +45,14 @@ public class TreesTest {
   }
 
   @Test void testInOrderTraversal() {
-    BinaryTree testTree = new BinaryTree();
-    testTree.setRoot(new Node(1));
-    testTree.getRoot().setLeft(new Node(2));
-    testTree.getRoot().setRight(new Node(3));
-    testTree.getRoot().getLeft().setLeft(new Node(4));
-    testTree.getRoot().getLeft().setRight(new Node(5));
-    testTree.getRoot().getRight().setLeft(new Node(6));
-    testTree.getRoot().getRight().setRight(new Node(7));
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(1));
+    testTree.getRoot().setLeft(new Node<>(2));
+    testTree.getRoot().setRight(new Node<>(3));
+    testTree.getRoot().getLeft().setLeft(new Node<>(4));
+    testTree.getRoot().getLeft().setRight(new Node<>(5));
+    testTree.getRoot().getRight().setLeft(new Node<>(6));
+    testTree.getRoot().getRight().setRight(new Node<>(7));
 
     ArrayList<Integer> expectedReturn = new ArrayList<>();
     expectedReturn.add(4);
@@ -53,14 +67,14 @@ public class TreesTest {
   }
 
   @Test void testPostOrderTraversal() {
-    BinaryTree testTree = new BinaryTree();
-    testTree.setRoot(new Node(1));
-    testTree.getRoot().setLeft(new Node(2));
-    testTree.getRoot().setRight(new Node(3));
-    testTree.getRoot().getLeft().setLeft(new Node(4));
-    testTree.getRoot().getLeft().setRight(new Node(5));
-    testTree.getRoot().getRight().setLeft(new Node(6));
-    testTree.getRoot().getRight().setRight(new Node(7));
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(1));
+    testTree.getRoot().setLeft(new Node<>(2));
+    testTree.getRoot().setRight(new Node<>(3));
+    testTree.getRoot().getLeft().setLeft(new Node<>(4));
+    testTree.getRoot().getLeft().setRight(new Node<>(5));
+    testTree.getRoot().getRight().setLeft(new Node<>(6));
+    testTree.getRoot().getRight().setRight(new Node<>(7));
 
     ArrayList<Integer> expectedReturn = new ArrayList<>();
     expectedReturn.add(4);

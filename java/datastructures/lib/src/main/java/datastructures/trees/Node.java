@@ -1,32 +1,36 @@
 package datastructures.trees;
 
-public class Node {
-  private int value;
-  private Node left;
-  private Node right;
+public class Node<T> {
+  private T value;
+  private Node<T> left;
+  private Node<T> right;
 
-  public Node(int value){
+  public Node() {
+    this.value = null;
+  }
+
+  public Node(T value){
     this.value = value;
     this.left = null;
     this.right = null;
   }
-  public int getValue() {
+  public T getValue() {
     return value;
   }
 
-  public void setValue(int value) {
+  public void setValue(T value) {
     this.value = value;
   }
 
-  public Node getLeft() {
+  public Node<T> getLeft() {
     return left;
   }
 
-  public void setLeft(Node left) {
+  public void setLeft(Node<T> left) {
     this.left = left;
   }
 
-  public Node getRight() {
+  public Node<T> getRight() {
     return right;
   }
 
