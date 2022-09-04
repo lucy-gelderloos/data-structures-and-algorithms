@@ -12,6 +12,8 @@
 8. [Zip Linked Lists](/java/datastructures/README.md)
 9. Mock whiteboard interviews
 10. [Stacks and Queues](/java/datastructures/README.md)
-10. [PseudoQueue](/java/datastructures/README.md)
-11. [Animal Shelter](/java/datastructures/README.md)
-12. [Validate Brackets](/java/datastructures/README.md)
+11. [PseudoQueue](/java/datastructures/README.md)
+12. [Animal Shelter](/java/datastructures/README.md)
+13. [Validate Brackets](/java/datastructures/README.md)
+14. Mock whiteboard interviews
+15. [Binary (Search) Trees](/java/datastructures/README.md)
