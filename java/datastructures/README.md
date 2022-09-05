@@ -8,9 +8,9 @@
 
 Create a Node class to hold a value and a pointer to another node, and a LinkedList class that creates a list of linked nodes.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/test/java/datastructures/linkedlist/LinkeListTest.java)
 
 #### LinkedList.java
 
@@ -39,9 +39,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 In the LinkedList class, create a method to append a node with the provided value to the end of the list and to insert nodes with the provided value either before or after a target value.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
 #### LinkedList.java
 
@@ -58,9 +58,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 In the LinkedList class, create a method called kthFromEnd that returns the value that is k nodes from the end of a linked list.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
 #### LinkedList.java
 
@@ -78,9 +78,9 @@ In the LinkedList class, create a method that zips two linked lists together and
 
 *Stretch goal:* create a method that zips two sorted lists together and returns a sorted list.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
 #### Whiteboard
 
@@ -101,9 +101,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
 
-Location: `src/main/java/datastructures/linkedlist/Stack.java`; `src/main/java/datastructures/linkedlist/Queue.java`
+Location: [lib/src/main/java/datastructures/linkedlist/Stack.java](lib/src/main/java/datastructures/linkedlist/Stack.java); [lib/src/main/java/datastructures/linkedlist/Queue.java](lib/src/main/java/datastructures/linkedlist/Queue.java)
 
-Tests: `src/test/java/datastructures/linkedlist/StackTest.java`; `src/test/java/datastructures/linkedlist/QueueTest.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/StackTest.java](lib/src/test/java/datastructures/linkedlist/StackTest.java); [lib/src/test/java/datastructures/linkedlist/QueueTest.java](lib/src/test/java/datastructures/linkedlist/QueueTest.java)
 
 #### Stack.java
 
@@ -150,9 +150,9 @@ Tests: `src/test/java/datastructures/linkedlist/StackTest.java`; `src/test/java/
 
 Create a PseudoQueue class that behaves like a queue externally, but internally uses two stacks to manage nodes.
 
-Location: `src/main/java/datastructures/linkedlist/PseudoQueue.java`
+Location: [lib/src/main/java/datastructures/linkedlist/PseudoQueue.java](lib/src/main/java/datastructures/linkedlist/PseudoQueue.java)
 
-Tests: `src/test/java/datastructures/linkedlist/PseudoQueueTest.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/PseudoQueueTest.java](lib/src/test/java/datastructures/linkedlist/PseudoQueueTest.java)
 
 #### PseudoQueue.java
 
@@ -175,9 +175,9 @@ Tests: `src/test/java/datastructures/linkedlist/PseudoQueueTest.java`
 
 Create an AnimalShelter class that holds dog and cat objects. The class should be a Queue, utilizing first in/first out principles, but users are able to specify whether they want a dog or a cat.
 
-Location: `src/main/java/datastructures/linkedlist/AnimalShelter.java`
+Location: [lib/src/main/java/datastructures/linkedlist/AnimalShelter.java](lib/src/main/java/datastructures/linkedlist/AnimalShelter.java)
 
-Tests: `src/test/java/datastructures/linkedlist/AnimalShelter.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/AnimalShelter.java](lib/src/main/java/datastructures/linkedlist/AnimalShelter.java)
 
 #### Whiteboard
 
@@ -205,9 +205,9 @@ Tests: `src/test/java/datastructures/linkedlist/AnimalShelter.java`
 
 Create a method called validate brackets, which takes in a string and returns true if all brackets in the string are balanced (i.e., all opening brackets have a matching closing bracket and brackets are not overlapping).
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkedList.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/LinkedList.java](lib/src/test/java/datastructures/linkedlist/LinkedList.java)
 
 #### Whiteboard
 
@@ -236,9 +236,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkedList.java`
 
 Implement a binary tree and a binary search tree.
 
-Location: `src/main/java/datastructures/trees/Node.java`; `src/main/java/datastructures/trees/BinaryTree.java`; `src/main/java/datastructures/trees/BinarySearchTree.java`;
+Location: [lib/src/main/java/datastructures/trees/Node.java](lib/src/main/java/datastructures/trees/Node.java); [lib/src/main/java/datastructures/trees/BinaryTree.java](lib/src/main/java/datastructures/trees/BinaryTree.java); [lib/src/main/java/datastructures/trees/BinarySearchTree.java](lib/src/main/java/datastructures/trees/BinarySearchTree.java);
 
-Tests: `src/test/java/datastructures/trees/TreesTest.java`
+Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java/datastructures/trees/TreesTest.java)
 
 #### Node.java
 
