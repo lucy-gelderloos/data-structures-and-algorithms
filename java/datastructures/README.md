@@ -64,6 +64,10 @@ Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/
 
 Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
+#### Whiteboard
+
+![Challenge 07 Whiteboard](./lib/src/main/java/resources/challenge-07-whiteboard.png)
+
 #### LinkedList.java
 
 - Methods
