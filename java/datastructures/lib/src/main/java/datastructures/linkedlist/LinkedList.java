@@ -1,13 +1,11 @@
 package datastructures.linkedlist;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static java.util.Objects.isNull;
 
 public class LinkedList<T>
 {
-
   private Node<T> head;
 
   public LinkedList() {
@@ -148,35 +146,52 @@ public class LinkedList<T>
 
   public static LinkedList<Integer> zipLists(LinkedList<Integer> list1, LinkedList<Integer> list2) throws Exception {
 
-    // TODO: a method to modify one of the lists in-place rather than creating a new list
+    if(isNull(list1.getHead()) || isNull(list2.getHead())) {
 
-    if(list1.getHead() == null && list2.getHead() == null) {
-      // if both lists are empty, throw an exception
-      throw new Exception("Both lists are empty.");
-    }
+      if(isNull(list1.getHead()) && isNull(list2.getHead())) {
+        throw new Exception("Both lists are empty.");
 
-    LinkedList<Integer> outputList = new LinkedList<>();
-    // create empty output list
-    Node<Integer> list1CurrentNode = list1.getHead();
-    // point list1CurrentNode to the head of list1
-    Node<Integer> list2CurrentNode = list2.getHead();
-    // point list2CurrentNode to the head of list2
-
-    while(list1CurrentNode != null || list2CurrentNode != null){
-      // while either CurrentNode is not null
-      if(list1CurrentNode != null) {
-        // if list1CurrentNode is not null, insert it into output list, then move to the next node
-        outputList.append(list1CurrentNode.getData());
-        // TODO: because we know we're at the end of the output list, don't need to use append() to iterate through and find the end
-        list1CurrentNode = list1CurrentNode.getNext();
+      } else if(isNull(list1.getHead())) {
+        list1 = list2;
       }
-      if(list2CurrentNode != null) {
-        // if list2CurrentNode is not null, insert it into output list, then move to the next node
-        outputList.append(list2CurrentNode.getData());
-        list2CurrentNode = list2CurrentNode.getNext();
+      return list1;
+
+    } else {
+      Node<Integer> list1PointerNode = list1.getHead();
+      Node<Integer> list2PointerNode = list2.getHead();
+
+      Node<Integer> list1PointerNext;
+      Node<Integer> list2PointerNext;
+
+      while(!isNull(list1PointerNode) && !isNull(list2PointerNode)) {
+        // if the next node in list 1 is not null, set the pointer next node to the next node
+        if(!isNull(list1PointerNode.getNext())) {
+          list1PointerNext = list1PointerNode.getNext();
+          // if the next node is null, set the pointer next node to null
+        } else { list1PointerNext = null; }
+
+        // set the list 1 pointer node next to the list 2 pointer node
+        list1PointerNode.setNext(list2PointerNode);
+
+        // if the next node in list 2 is not null and the list 1 pointer next node is null (i.e., we've reached the end of list 1), return
+        if(!isNull(list2PointerNode.getNext())) {
+          if(isNull(list1PointerNext)) {
+            return list1;
+          }
+          // if the next node in neither list is null, set the list 2 pointer next node to the next node
+          list2PointerNext = list2PointerNode.getNext();
+          // else if the next node in list 2 is null, set the next pointer node to null
+        } else { list2PointerNext = null; }
+
+        // point the list 2 pointer node at the list 1 pointer next node
+        list2PointerNode.setNext(list1PointerNext);
+
+        // move both pointer nodes forward
+        list1PointerNode = list1PointerNext;
+        list2PointerNode = list2PointerNext;
       }
     }
-    return outputList;
+    return list1;
   }
 
   public static LinkedList<Integer> zipSortedLists(LinkedList<Integer> list1, LinkedList<Integer> list2) throws Exception {
