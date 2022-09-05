@@ -82,10 +82,14 @@ Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
 
 Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
+#### Whiteboard
+
+![Challenge 08 Whiteboard](./lib/src/main/java/resources/challenge-08-whiteboard.png)
+
 #### LinkedList.java
 
 - Methods
-  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null. Efficiency: O(n^2) because calls *append* to add the value; refactor to improve efficiency.
+  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and inserts the values from the second list into the first list in an alternating (zipped) pattern. It essentially swaps each list's nodes to point to the other list's next node; when one list is empty, adds the rest of the nodes of the other list, in order. Trows an exception if both lists are null. Time efficiency: O(n); space efficiency O(1).
   - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.  Efficiency: O(n^2) because calls *append* to add the value; refactor to improve efficiency.
   - To do: refactor to reduce size (do not call *append*)
 
@@ -177,8 +181,8 @@ Tests: `src/test/java/datastructures/linkedlist/AnimalShelter.java`
 
 #### Whiteboard
 
-![Whiteboard part 1](./src/main/java/resources/challenge-12-whiteboard-01.png)
-![Whiteboard part 2](./src/main/java/resources/challenge-12-whiteboard-02.png)
+![Whiteboard part 1](./lib/src/main/java/resources/challenge-12-whiteboard-01.png)
+![Whiteboard part 2](./lib/src/main/java/resources/challenge-12-whiteboard-02.png)
 
 #### AnimalShelter.java
 
@@ -207,9 +211,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkedList.java`
 
 #### Whiteboard
 
-![Whiteboard part 1](./src/main/java/resources/challenge-13-whiteboard-01.png)
-![Whiteboard part 2](./src/main/java/resources/challenge-13-whiteboard-02.png)
-![Whiteboard part 3](./src/main/java/resources/challenge-13-whiteboard-03.png)
+![Whiteboard part 1](./lib/src/main/java/resources/challenge-13-whiteboard-01.png)
+![Whiteboard part 2](./lib/src/main/java/resources/challenge-13-whiteboard-02.png)
+![Whiteboard part 3](./lib/src/main/java/resources/challenge-13-whiteboard-03.png)
 
 #### LinkedList.java
 
