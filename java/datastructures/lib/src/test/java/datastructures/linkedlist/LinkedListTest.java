@@ -103,11 +103,19 @@ public class LinkedListTest
     LinkedList<Integer> shortTestList = new LinkedList<>();
     shortTestList.insert(3);
 
+    LinkedList<Integer> nullTestList = new LinkedList<>();
+    nullTestList.setHead(null);
+
     assertEquals(5,testList.kthFromEnd(3),"k of 3 should return 5");
     assertEquals(2,testList.kthFromEnd(0),"k of 0 should return 2");
     assertEquals(2,testList.kthFromEnd(0),"k of 6 should return 7");
     assertEquals(3,shortTestList.kthFromEnd(0),"k of 0 should return 3");
-//      assertThrows(Exception,testList.kthFromEnd(8));
+
+    Exception bigKException = assertThrows(Exception.class, () -> shortTestList.kthFromEnd(2));
+    assertEquals("The list is too short.", bigKException.getMessage());
+
+    Exception nullException = assertThrows(Exception.class, () -> nullTestList.kthFromEnd(2));
+    assertEquals("The list is empty.", nullException.getMessage());
   }
 
 

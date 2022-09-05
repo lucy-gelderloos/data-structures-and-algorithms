@@ -6,6 +6,8 @@
 
 ### Challenge 05 - Linked List Implementation
 
+#### Summary
+
 Create a Node class to hold a value and a pointer to another node, and a LinkedList class that creates a list of linked nodes.
 
 Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
