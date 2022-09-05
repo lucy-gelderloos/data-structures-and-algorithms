@@ -8,9 +8,9 @@
 
 Create a Node class to hold a value and a pointer to another node, and a LinkedList class that creates a list of linked nodes.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/test/java/datastructures/linkedlist/LinkeListTest.java)
 
 #### LinkedList.java
 
@@ -39,9 +39,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 In the LinkedList class, create a method to append a node with the provided value to the end of the list and to insert nodes with the provided value either before or after a target value.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
 #### LinkedList.java
 
@@ -58,9 +58,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 In the LinkedList class, create a method called kthFromEnd that returns the value that is k nodes from the end of a linked list.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
 #### LinkedList.java
 
@@ -78,14 +78,18 @@ In the LinkedList class, create a method that zips two linked lists together and
 
 *Stretch goal:* create a method that zips two sorted lists together and returns a sorted list.
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
+Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
+
+#### Whiteboard
+
+![Challenge 08 Whiteboard](./lib/src/main/java/resources/challenge-08-whiteboard.png)
 
 #### LinkedList.java
 
 - Methods
-  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and alternates inserting the values from each list into a third list. If one list is shorter than the other, it alternates values until the shorter list is null, then inserts the values from the longer list in order. If one list is null, the output list will have the same contents as the non-null input list. Throws an exception if both lists are null. Efficiency: O(n^2) because calls *append* to add the value; refactor to improve efficiency.
+  - *zipLists(LinkedList list1, LinkedList list2)* takes two linked lists and inserts the values from the second list into the first list in an alternating (zipped) pattern. It essentially swaps each list's nodes to point to the other list's next node; when one list is empty, adds the rest of the nodes of the other list, in order. Trows an exception if both lists are null. Time efficiency: O(n); space efficiency O(1).
   - *zipSortedLists(LinkedList list1, LinkedList list2)* takes in two sorted lists. It checks the head value of each list, inserts the lower value into the output list, and advances to the next node of that list. It continues comparing the nodes from each list, inserting the lower of the two values, and advancing through the lists until there are no values left in one or both lists. If one list has values left over, they are inserted in order. Duplicate values will be duplicated (i.e., if each list has a node whose value is 5, the output list will have two consecutive nodes whose value is 5. Throws an exception if both lists are null.  Efficiency: O(n^2) because calls *append* to add the value; refactor to improve efficiency.
   - To do: refactor to reduce size (do not call *append*)
 
@@ -97,9 +101,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkeListTest.java`
 
 Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
 
-Location: `src/main/java/datastructures/linkedlist/Stack.java`; `src/main/java/datastructures/linkedlist/Queue.java`
+Location: [lib/src/main/java/datastructures/linkedlist/Stack.java](lib/src/main/java/datastructures/linkedlist/Stack.java); [lib/src/main/java/datastructures/linkedlist/Queue.java](lib/src/main/java/datastructures/linkedlist/Queue.java)
 
-Tests: `src/test/java/datastructures/linkedlist/StackTest.java`; `src/test/java/datastructures/linkedlist/QueueTest.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/StackTest.java](lib/src/test/java/datastructures/linkedlist/StackTest.java); [lib/src/test/java/datastructures/linkedlist/QueueTest.java](lib/src/test/java/datastructures/linkedlist/QueueTest.java)
 
 #### Stack.java
 
@@ -146,9 +150,9 @@ Tests: `src/test/java/datastructures/linkedlist/StackTest.java`; `src/test/java/
 
 Create a PseudoQueue class that behaves like a queue externally, but internally uses two stacks to manage nodes.
 
-Location: `src/main/java/datastructures/linkedlist/PseudoQueue.java`
+Location: [lib/src/main/java/datastructures/linkedlist/PseudoQueue.java](lib/src/main/java/datastructures/linkedlist/PseudoQueue.java)
 
-Tests: `src/test/java/datastructures/linkedlist/PseudoQueueTest.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/PseudoQueueTest.java](lib/src/test/java/datastructures/linkedlist/PseudoQueueTest.java)
 
 #### PseudoQueue.java
 
@@ -171,14 +175,14 @@ Tests: `src/test/java/datastructures/linkedlist/PseudoQueueTest.java`
 
 Create an AnimalShelter class that holds dog and cat objects. The class should be a Queue, utilizing first in/first out principles, but users are able to specify whether they want a dog or a cat.
 
-Location: `src/main/java/datastructures/linkedlist/AnimalShelter.java`
+Location: [lib/src/main/java/datastructures/linkedlist/AnimalShelter.java](lib/src/main/java/datastructures/linkedlist/AnimalShelter.java)
 
-Tests: `src/test/java/datastructures/linkedlist/AnimalShelter.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/AnimalShelter.java](lib/src/main/java/datastructures/linkedlist/AnimalShelter.java)
 
 #### Whiteboard
 
-![Whiteboard part 1](./src/main/java/resources/challenge-12-whiteboard-01.png)
-![Whiteboard part 2](./src/main/java/resources/challenge-12-whiteboard-02.png)
+![Whiteboard part 1](./lib/src/main/java/resources/challenge-12-whiteboard-01.png)
+![Whiteboard part 2](./lib/src/main/java/resources/challenge-12-whiteboard-02.png)
 
 #### AnimalShelter.java
 
@@ -201,15 +205,15 @@ Tests: `src/test/java/datastructures/linkedlist/AnimalShelter.java`
 
 Create a method called validate brackets, which takes in a string and returns true if all brackets in the string are balanced (i.e., all opening brackets have a matching closing bracket and brackets are not overlapping).
 
-Location: `src/main/java/datastructures/linkedlist/LinkedList.java`
+Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
-Tests: `src/test/java/datastructures/linkedlist/LinkedList.java`
+Tests: [lib/src/test/java/datastructures/linkedlist/LinkedList.java](lib/src/test/java/datastructures/linkedlist/LinkedList.java)
 
 #### Whiteboard
 
-![Whiteboard part 1](./src/main/java/resources/challenge-13-whiteboard-01.png)
-![Whiteboard part 2](./src/main/java/resources/challenge-13-whiteboard-02.png)
-![Whiteboard part 3](./src/main/java/resources/challenge-13-whiteboard-03.png)
+![Whiteboard part 1](./lib/src/main/java/resources/challenge-13-whiteboard-01.png)
+![Whiteboard part 2](./lib/src/main/java/resources/challenge-13-whiteboard-02.png)
+![Whiteboard part 3](./lib/src/main/java/resources/challenge-13-whiteboard-03.png)
 
 #### LinkedList.java
 
@@ -232,9 +236,9 @@ Tests: `src/test/java/datastructures/linkedlist/LinkedList.java`
 
 Implement a binary tree and a binary search tree.
 
-Location: `src/main/java/datastructures/trees/Node.java`; `src/main/java/datastructures/trees/BinaryTree.java`; `src/main/java/datastructures/trees/BinarySearchTree.java`;
+Location: [lib/src/main/java/datastructures/trees/Node.java](lib/src/main/java/datastructures/trees/Node.java); [lib/src/main/java/datastructures/trees/BinaryTree.java](lib/src/main/java/datastructures/trees/BinaryTree.java); [lib/src/main/java/datastructures/trees/BinarySearchTree.java](lib/src/main/java/datastructures/trees/BinarySearchTree.java);
 
-Tests: `src/test/java/datastructures/trees/TreesTest.java`
+Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java/datastructures/trees/TreesTest.java)
 
 #### Node.java
 
