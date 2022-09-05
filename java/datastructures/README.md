@@ -6,6 +6,8 @@
 
 ### Challenge 05 - Linked List Implementation
 
+#### Summary
+
 Create a Node class to hold a value and a pointer to another node, and a LinkedList class that creates a list of linked nodes.
 
 Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
@@ -61,6 +63,10 @@ In the LinkedList class, create a method called kthFromEnd that returns the valu
 Location: [lib/src/main/java/datastructures/linkedlist/LinkedList.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
 
 Tests: [src/test/java/datastructures/linkedlist/LinkeListTest.java](lib/src/main/java/datastructures/linkedlist/LinkedList.java)
+
+#### Whiteboard
+
+![Challenge 07 Whiteboard](./lib/src/main/java/resources/challenge-07-whiteboard.png)
 
 #### LinkedList.java
 

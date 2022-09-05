@@ -115,33 +115,20 @@ public class LinkedList<T>
 
   public T kthFromEnd(int k) throws Exception {
 
-    T kthValue;
-    Node<T> thisNode = this.head;
-
-    if(isNull(thisNode)) {
+    if(isNull(this.head)) {
       throw new Exception("The list is empty.");
     }
-
+    Node<T> thisNode = this.head;
+    ArrayList<T> holdingArray = new ArrayList<>();
     while(thisNode != null) {
-
-      Node<T> nextNode = thisNode.getNext();
-
-      if(nextNode != null) {
-        // if the next node is not null, set this node as the previous node of the next node
-        nextNode.setPrev(thisNode);
-        // move to the next node
-        thisNode = thisNode.getNext();
-      } else {
-        // if next node is null, this is the last node; start a for loop
-        for(int i = 0; i < k; i++) {
-          // turn around and go back k nodes
-          thisNode = thisNode.getPrev();
-        }
-        break;
-      }
+      holdingArray.add(thisNode.getData());
+      thisNode = thisNode.getNext();
     }
-    kthValue = thisNode.getData();
-    return kthValue;
+    if(holdingArray.size() < k) {
+      throw new Exception("The list is too short.");
+    } else {
+      return holdingArray.get(holdingArray.size() - k - 1);
+    }
   }
 
   public static LinkedList<Integer> zipLists(LinkedList<Integer> list1, LinkedList<Integer> list2) throws Exception {
