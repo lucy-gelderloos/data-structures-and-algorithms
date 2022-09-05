@@ -128,33 +128,47 @@ public class LinkedListTest
       list1c.append(3);
       list1c.append(5);
 
+      LinkedList<Integer> list1d = new LinkedList<>();
+      list1d.append(1);
+      list1d.append(3);
+      list1d.append(5);
+
       LinkedList<Integer> list2 = new LinkedList<>();
       list2.append(2);
       list2.append(4);
       list2.append(6);
 
-      LinkedList<Integer> list3 = new LinkedList<>();
-      list3.append(2);
-      list3.append(4);
-      list3.append(6);
-      list3.append(8);
-      list3.append(10);
+      LinkedList<Integer> list3a = new LinkedList<>();
+      list3a.append(2);
+      list3a.append(4);
+      list3a.append(6);
+      list3a.append(8);
+      list3a.append(10);
+
+      LinkedList<Integer> list3b = new LinkedList<>();
+      list3b.append(2);
+      list3b.append(4);
+      list3b.append(6);
+      list3b.append(8);
+      list3b.append(10);
 
       LinkedList<Integer> list4 = new LinkedList<>();
       LinkedList<Integer> list5 = new LinkedList<>();
 
       // does it zip lists of equal length correctly?
-//      LinkedList<Integer> equalLengthLists = LinkedList.zipLists(list1a,list2);
+      LinkedList<Integer> equalLengthLists = LinkedList.zipLists(list1a,list2);
 
       // does it work correctly if one list is longer than the other?
-      LinkedList<Integer> oneLonger = LinkedList.zipLists(list1b, list3);
+      LinkedList<Integer> oneLonger = LinkedList.zipLists(list1b, list3a);
+      LinkedList<Integer> otherLonger = LinkedList.zipLists(list3b, list1c);
 
       // does it work correctly if one list is null?
-//      LinkedList<Integer> oneNull = LinkedList.zipLists(list1c, list4);
+      LinkedList<Integer> oneNull = LinkedList.zipLists(list1d, list4);
 
-//      assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> NULL",equalLengthLists.toString());
+      assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> NULL",equalLengthLists.toString());
       assertEquals("{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> {8} -> {10} -> NULL",oneLonger.toString());
-//      assertEquals("{1} -> {3} -> {5} -> NULL",oneNull.toString());
+      assertEquals("{2} -> {1} -> {4} -> {3} -> {6} -> {5} -> {8} -> {10} -> NULL",otherLonger.toString());
+      assertEquals("{1} -> {3} -> {5} -> NULL",oneNull.toString());
 
       // does it throw an exception if both lists are null?
       Exception exception = assertThrows(Exception.class, () -> LinkedList.zipLists(list4, list5));

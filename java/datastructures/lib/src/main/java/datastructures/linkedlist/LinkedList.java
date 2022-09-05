@@ -147,10 +147,8 @@ public class LinkedList<T>
   public static LinkedList<Integer> zipLists(LinkedList<Integer> list1, LinkedList<Integer> list2) throws Exception {
 
     if(isNull(list1.getHead()) || isNull(list2.getHead())) {
-
       if(isNull(list1.getHead()) && isNull(list2.getHead())) {
         throw new Exception("Both lists are empty.");
-
       } else if(isNull(list1.getHead())) {
         list1 = list2;
       }
