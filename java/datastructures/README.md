@@ -290,3 +290,24 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 - *testPreOrderTraversal*, *testInOrderTraversal*, and *testPostOrderTraversal*  call *getValuesPreOrder*, *getValuesInOrder*, *getValuesPostOrder*, respectively, and confirm that each method returns the expected values in the expected order.
 - *testAdd* creates three binary search trees with the same values provided in a different order, then traverses each tree to confirm that the values are all present in the expected position.
 - *testContains* creates a binary search tree, then confirms that calling contains() on that tree will return true if the provided value is in the tree, and false if it is not.
+
+### Challenge 15
+
+Add a method to the BinaryTree class that returns the highest value stored in a tree of integers.
+
+Location: [lib/src/main/java/datastructures/trees/BinaryTree.java](lib/src/main/java/datastructures/trees/BinaryTree.java);
+Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java/datastructures/trees/TreesTest.java)
+
+#### Whiteboard
+
+![Challenge 16 Whiteboard](./lib/src/main/java/resources/challenge-13-whiteboard-01.png)
+
+#### BinaryTree.java
+
+- Methods
+  - *getMax()* creates an integer array whose only value is the value of the root node of the tree, then passes the root and that holding array to *findMax*. Returns the value at index 0 of the holding array.
+  - *findMax(Node<Integer> root, int[] valueHolder)* compares the value of the root node to the value at index 0 of the holding array; if the node's value is greater, it replaces the value at index 0. It then checks if the root has a left child node. If yes, it calls itself on the root's left node and repeats the process; if no, it checks if the node has a right child node and if yes, calls itself on the root's right node. If both child nodes are empty, the function returns, until every node has been visited and its value has been compared.
+
+#### Testing
+
+- *testFindMax* confirms that calling *getMax* on a test tree returns the expected maximum value.

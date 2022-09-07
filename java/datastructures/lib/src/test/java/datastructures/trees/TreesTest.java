@@ -8,7 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TreesTest {
 
-  @Test void testCreateTree() {
+  @Test
+  void testCreateTree() {
     BinaryTree<Integer> nullTree = new BinaryTree<>();
     Node<Integer> newNode = new Node<>(5);
     BinaryTree<Integer> oneNodeTree = new BinaryTree<>(newNode);
@@ -18,11 +19,12 @@ public class TreesTest {
 
     assertNull(nullTree.getRoot());
     assertNull(nullSearchTree.getRoot());
-    assertEquals(5,oneNodeTree.getRoot().getValue().intValue());
-    assertEquals(5,oneNodeSearchTree.getRoot().getValue().intValue());
+    assertEquals(5, oneNodeTree.getRoot().getValue().intValue());
+    assertEquals(5, oneNodeSearchTree.getRoot().getValue().intValue());
   }
 
-  @Test void testPreOrderTraversal() {
+  @Test
+  void testPreOrderTraversal() {
     BinaryTree<Integer> testTree = new BinaryTree<>();
     testTree.setRoot(new Node<>(1));
     testTree.getRoot().setLeft(new Node<>(2));
@@ -41,10 +43,11 @@ public class TreesTest {
     expectedReturn.add(6);
     expectedReturn.add(7);
 
-    assertEquals(expectedReturn,testTree.getValuesPreOrder(),"preOrder");
+    assertEquals(expectedReturn, testTree.getValuesPreOrder(), "preOrder");
   }
 
-  @Test void testInOrderTraversal() {
+  @Test
+  void testInOrderTraversal() {
     BinaryTree<Integer> testTree = new BinaryTree<>();
     testTree.setRoot(new Node<>(1));
     testTree.getRoot().setLeft(new Node<>(2));
@@ -63,10 +66,11 @@ public class TreesTest {
     expectedReturn.add(3);
     expectedReturn.add(7);
 
-    assertEquals(expectedReturn,testTree.getValuesInOrder(),"inOrder");
+    assertEquals(expectedReturn, testTree.getValuesInOrder(), "inOrder");
   }
 
-  @Test void testPostOrderTraversal() {
+  @Test
+  void testPostOrderTraversal() {
     BinaryTree<Integer> testTree = new BinaryTree<>();
     testTree.setRoot(new Node<>(1));
     testTree.getRoot().setLeft(new Node<>(2));
@@ -85,11 +89,12 @@ public class TreesTest {
     expectedReturn.add(3);
     expectedReturn.add(1);
 
-    assertEquals(expectedReturn,testTree.getValuesPostOrder(),"postOrder");
+    assertEquals(expectedReturn, testTree.getValuesPostOrder(), "postOrder");
   }
 
-  @Test void testAdd() {
-    int[] searchTreeValues = new int[]{4,8,15,16,22,23,27,42,85,105};
+  @Test
+  void testAdd() {
+    int[] searchTreeValues = new int[]{4, 8, 15, 16, 22, 23, 27, 42, 85, 105};
     BinarySearchTree testSearchTree = new BinarySearchTree();
     ArrayList<Integer> expectedValues = new ArrayList<>();
     for (int value : searchTreeValues) {
@@ -97,25 +102,26 @@ public class TreesTest {
       expectedValues.add(value);
     }
 
-    int[] searchTreeValuesReversed = new int[]{105,85,42,27,23,22,16,15,8,4};
+    int[] searchTreeValuesReversed = new int[]{105, 85, 42, 27, 23, 22, 16, 15, 8, 4};
     BinarySearchTree testSearchTreeReversed = new BinarySearchTree();
     for (int value : searchTreeValuesReversed) {
       testSearchTreeReversed.add(value);
     }
 
-    int[] searchTreeValuesScrambled = new int[]{23,85,15,8,27,22,105,4,16,42};
+    int[] searchTreeValuesScrambled = new int[]{23, 85, 15, 8, 27, 22, 105, 4, 16, 42};
     BinarySearchTree testSearchTreeScrambled = new BinarySearchTree();
     for (int value : searchTreeValuesScrambled) {
       testSearchTreeScrambled.add(value);
     }
 
-    assertEquals(expectedValues,testSearchTree.getValuesInOrder());
-    assertEquals(expectedValues,testSearchTreeReversed.getValuesInOrder());
-    assertEquals(expectedValues,testSearchTreeScrambled.getValuesInOrder());
+    assertEquals(expectedValues, testSearchTree.getValuesInOrder());
+    assertEquals(expectedValues, testSearchTreeReversed.getValuesInOrder());
+    assertEquals(expectedValues, testSearchTreeScrambled.getValuesInOrder());
   }
 
-  @Test void testContains() {
-    int[] searchTreeValues = new int[]{4,8,15,16,22,23,27,42,85,105};
+  @Test
+  void testContains() {
+    int[] searchTreeValues = new int[]{4, 8, 15, 16, 22, 23, 27, 42, 85, 105};
     BinarySearchTree testSearchTree = new BinarySearchTree();
     for (int value : searchTreeValues) {
       testSearchTree.add(value);
@@ -126,5 +132,20 @@ public class TreesTest {
     assertFalse(testSearchTree.contains(43));
   }
 
-}
+  @Test
+  void testFindMax() {
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(8));
+    testTree.getRoot().setLeft(new Node<>(13));
+    testTree.getRoot().setRight(new Node<>(1));
+    testTree.getRoot().getLeft().setLeft(new Node<>(1));
+    testTree.getRoot().getLeft().setRight(new Node<>(6));
+    testTree.getRoot().getRight().setRight(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setLeft(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setRight(new Node<>(7));
+    testTree.getRoot().getRight().getRight().setRight(new Node<>(3));
 
+    assertEquals(14,testTree.getMax());
+  }
+
+}

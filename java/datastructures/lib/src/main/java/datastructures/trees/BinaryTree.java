@@ -73,6 +73,27 @@ public class BinaryTree<T> {
     values.add(root.getValue());
   }
 
+  public int getMax() {
+    int[] valueHolder = new int[1];
+    valueHolder[0] = (int) this.root.getValue();
+    findMax((Node<Integer>) this.root, valueHolder);
+    return valueHolder[0];
+  }
+  public void findMax(Node<Integer> root, int[] valueHolder) {
+    if(root == null) {
+      return;
+    }
+    if(valueHolder[0] < root.getValue()) {
+      valueHolder[0] = root.getValue();
+    }
+    if(!isNull(root.getLeft())) {
+      findMax(root.getLeft(), valueHolder);
+    }
+    if(!isNull(root.getRight())) {
+      findMax(root.getRight(), valueHolder);
+    }
+  }
+
   public Node<T> getRoot() {
     return root;
   }
