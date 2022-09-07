@@ -17,3 +17,4 @@
 13. [Validate Brackets](/java/datastructures/README.md)
 14. Mock whiteboard interviews
 15. [Binary (Search) Trees](/java/datastructures/README.md)
+16. [Find Max in Tree](/java/datastructures/README.md)
