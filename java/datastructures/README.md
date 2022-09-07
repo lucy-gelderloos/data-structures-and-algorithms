@@ -300,7 +300,7 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 
 #### Whiteboard
 
-![Challenge 16 Whiteboard](./lib/src/main/java/resources/challenge-13-whiteboard-01.png)
+![Challenge 16 Whiteboard](./lib/src/main/java/resources/challenge-16-whiteboard.png)
 
 #### BinaryTree.java
 
