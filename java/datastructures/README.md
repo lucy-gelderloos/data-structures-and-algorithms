@@ -310,4 +310,4 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 
 #### Testing
 
-- *testFindMax* confirms that calling *getMax* on a test tree returns the expected maximum value.
+- *testFindMax* confirms that calling *getMax* on a test tree returns the expected maximum value (or, if the test tree has no nodes, throws an exception).

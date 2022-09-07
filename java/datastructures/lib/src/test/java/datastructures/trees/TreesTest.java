@@ -1,5 +1,6 @@
 package datastructures.trees;
 
+import datastructures.linkedlist.LinkedList;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -133,7 +134,7 @@ public class TreesTest {
   }
 
   @Test
-  void testFindMax() {
+  void testFindMax() throws Exception {
     BinaryTree<Integer> testTree = new BinaryTree<>();
     testTree.setRoot(new Node<>(8));
     testTree.getRoot().setLeft(new Node<>(13));
@@ -145,7 +146,16 @@ public class TreesTest {
     testTree.getRoot().getLeft().getRight().setRight(new Node<>(7));
     testTree.getRoot().getRight().getRight().setRight(new Node<>(3));
 
+    BinaryTree<Integer> testBabyTree = new BinaryTree<>();
+    testBabyTree.setRoot(new Node<>(4));
+
+    BinaryTree<Integer> testNullTree = new BinaryTree<>();
+
     assertEquals(14,testTree.getMax());
+    assertEquals(4,testBabyTree.getMax());
+
+    Exception exception = assertThrows(Exception.class, () -> testNullTree.getMax());
+    assertEquals("The tree is empty.", exception.getMessage());
   }
 
 }

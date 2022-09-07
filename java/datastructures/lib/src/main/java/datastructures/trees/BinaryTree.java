@@ -73,7 +73,10 @@ public class BinaryTree<T> {
     values.add(root.getValue());
   }
 
-  public int getMax() {
+  public int getMax() throws Exception {
+    if(isNull(this.root)) {
+      throw new Exception("The tree is empty.");
+    }
     int[] valueHolder = new int[1];
     valueHolder[0] = (int) this.root.getValue();
     findMax((Node<Integer>) this.root, valueHolder);
