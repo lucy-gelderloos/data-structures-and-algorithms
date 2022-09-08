@@ -1,5 +1,7 @@
 package datastructures.trees;
 
+import datastructures.linkedlist.Queue;
+
 import java.util.ArrayList;
 
 import static java.util.Objects.isNull;
@@ -95,6 +97,28 @@ public class BinaryTree<T> {
     if(!isNull(root.getRight())) {
       findMax(root.getRight(), valueHolder);
     }
+  }
+
+  public static ArrayList breadthFirst(BinaryTree tree) throws Exception {
+    if(isNull(tree.getRoot())) {
+      throw new Exception("The tree is empty.");
+    }
+    // TODO: possible to use parameterized Node, Queue, etc.?
+    Queue holdingQueue = new Queue<>();
+    holdingQueue.enqueue(tree.getRoot());
+    ArrayList values = new ArrayList<>();
+    while(!isNull(holdingQueue.getFront())) {
+      Node thisNode = (Node) holdingQueue.getFront().getData();
+      if(!isNull(thisNode.getLeft())) {
+        holdingQueue.enqueue(thisNode.getLeft());
+      }
+      if(!isNull(thisNode.getRight())) {
+        holdingQueue.enqueue(thisNode.getRight());
+      }
+      values.add(thisNode.getValue());
+      holdingQueue.dequeue();
+    }
+    return values;
   }
 
   public Node<T> getRoot() {

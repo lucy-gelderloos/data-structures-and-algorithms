@@ -158,4 +158,31 @@ public class TreesTest {
     assertEquals("The tree is empty.", exception.getMessage());
   }
 
+  @Test
+  void testBreadthFirst() throws Exception {
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(8));
+    testTree.getRoot().setLeft(new Node<>(13));
+    testTree.getRoot().setRight(new Node<>(1));
+    testTree.getRoot().getLeft().setLeft(new Node<>(1));
+    testTree.getRoot().getLeft().setRight(new Node<>(6));
+    testTree.getRoot().getRight().setRight(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setLeft(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setRight(new Node<>(7));
+    testTree.getRoot().getRight().getRight().setRight(new Node<>(3));
+
+    BinaryTree<Integer> testBabyTree = new BinaryTree<>();
+    testBabyTree.setRoot(new Node<>(4));
+
+    BinaryTree<Integer> testNullTree = new BinaryTree<>();
+
+    // [8,13,1,1,6,14,14,7,3]
+
+    assertEquals("[8, 13, 1, 1, 6, 14, 14, 7, 3]",BinaryTree.breadthFirst(testTree).toString());
+    assertEquals("[4]",BinaryTree.breadthFirst(testBabyTree).toString());
+
+    Exception exception = assertThrows(Exception.class, () -> BinaryTree.breadthFirst(testNullTree));
+    assertEquals("The tree is empty.", exception.getMessage());
+  }
+
 }

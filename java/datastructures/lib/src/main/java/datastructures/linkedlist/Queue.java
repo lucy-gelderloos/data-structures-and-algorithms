@@ -22,6 +22,15 @@ public class Queue<T> {
     this.rear = newNode;
   }
 
+  public void enqueue(Node<T> newNode) {
+    if(isNull(this.front)){
+      this.front = newNode;
+    } else {
+      this.rear.setNext(newNode);
+    }
+    this.rear = newNode;
+  }
+
   public T dequeue() throws Exception {
     // Returns: the value from node from the front of the queue
     // Removes the node from the front of the queue
