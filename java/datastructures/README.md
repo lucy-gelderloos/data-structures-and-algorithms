@@ -291,7 +291,7 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 - *testAdd* creates three binary search trees with the same values provided in a different order, then traverses each tree to confirm that the values are all present in the expected position.
 - *testContains* creates a binary search tree, then confirms that calling contains() on that tree will return true if the provided value is in the tree, and false if it is not.
 
-### Challenge 15
+### Challenge 16
 
 Add a method to the BinaryTree class that returns the highest value stored in a tree of integers.
 
@@ -311,3 +311,23 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 #### Testing
 
 - *testFindMax* confirms that calling *getMax* on a test tree returns the expected maximum value (or, if the test tree has no nodes, throws an exception).
+
+### Challenge 16
+
+Add a method to the BinaryTree class that traverses a list breadth-wise and returns a list of values in the order they are encountered.
+
+Location: [lib/src/main/java/datastructures/trees/BinaryTree.java](lib/src/main/java/datastructures/trees/BinaryTree.java);
+Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java/datastructures/trees/TreesTest.java)
+
+#### Whiteboard
+
+![Challenge 17 Whiteboard](./lib/src/main/java/resources/challenge-17-whiteboard.png)
+
+#### BinaryTree.java
+
+- Methods
+  - *breadthFirst(BinaryTree tree)* checks if the tree is empty and returns an exception if yes. If no, it creates an empty queue and ArrayList and enqueues the root value of the tree. While the front node of the queue is not null, it enqueues the left and right children of the front node (if present), adds the value of the front node to the list of values, and dequeues the front node. When all nodes have been processed, returns the ArrayList of values. Efficiency: time & space are both O(n); the method always has to traverse the entire tree, but only once, and the size of the queue and ArrayList scale linearly with the size of the input.
+
+#### Testing
+
+- *testBreadthFirst* confirms that calling *breadthFirst* on a test tree returns the expected list of values (or, if the test tree has no nodes, throws an exception).
