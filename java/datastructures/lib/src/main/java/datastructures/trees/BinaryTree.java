@@ -121,6 +121,43 @@ public class BinaryTree<T> {
     return values;
   }
 
+  public static BinaryTree<String> getFizzBuzz(BinaryTree<Integer> inputTree) throws Exception {
+    if(isNull(inputTree.getRoot())) {
+      throw new Exception("The tree is empty.");
+    }
+    BinaryTree<String> outputTree = new BinaryTree<>();
+    outputTree.setRoot(new Node<String>());
+    fizzBuzz(inputTree.getRoot(),outputTree.getRoot());
+    return outputTree;
+  }
+
+  public static void fizzBuzz(Node<Integer> inputRoot,Node<String> outputRoot) {
+    if(isNull(inputRoot)) {
+      return;
+    }
+
+    Integer inputValue = inputRoot.getValue();
+    if(inputValue%5 == 0 && inputValue%3 == 0) {
+      outputRoot.setValue("FizzBuzz");
+    } else if(inputValue%3 == 0) {
+      outputRoot.setValue("Fizz");
+    } else if(inputValue%5 == 0) {
+      outputRoot.setValue("Buzz");
+    } else { outputRoot.setValue(inputValue.toString()); }
+
+    if(!isNull(inputRoot.getLeft())) {
+      Node<String> newNode = new Node<>();
+      outputRoot.setLeft(newNode);
+      fizzBuzz(inputRoot.getLeft(),outputRoot.getLeft());
+    }
+    if(!isNull(inputRoot.getRight())) {
+      Node<String> newNode = new Node<>();
+      outputRoot.setRight(newNode);
+      fizzBuzz(inputRoot.getRight(),outputRoot.getRight());
+    }
+  }
+
+
   public Node<T> getRoot() {
     return root;
   }
