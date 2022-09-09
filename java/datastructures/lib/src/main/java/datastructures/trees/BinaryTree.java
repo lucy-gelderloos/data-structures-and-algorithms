@@ -1,5 +1,7 @@
 package datastructures.trees;
 
+import datastructures.linkedlist.Queue;
+
 import java.util.ArrayList;
 
 import static java.util.Objects.isNull;
@@ -96,6 +98,65 @@ public class BinaryTree<T> {
       findMax(root.getRight(), valueHolder);
     }
   }
+
+  public static ArrayList breadthFirst(BinaryTree tree) throws Exception {
+    if(isNull(tree.getRoot())) {
+      throw new Exception("The tree is empty.");
+    }
+    // TODO: possible to use parameterized Node, Queue, etc.?
+    Queue holdingQueue = new Queue<>();
+    holdingQueue.enqueue(tree.getRoot());
+    ArrayList values = new ArrayList<>();
+    while(!isNull(holdingQueue.getFront())) {
+      Node thisNode = (Node) holdingQueue.getFront().getData();
+      if(!isNull(thisNode.getLeft())) {
+        holdingQueue.enqueue(thisNode.getLeft());
+      }
+      if(!isNull(thisNode.getRight())) {
+        holdingQueue.enqueue(thisNode.getRight());
+      }
+      values.add(thisNode.getValue());
+      holdingQueue.dequeue();
+    }
+    return values;
+  }
+
+  public static BinaryTree<String> getFizzBuzz(BinaryTree<Integer> inputTree) throws Exception {
+    if(isNull(inputTree.getRoot())) {
+      throw new Exception("The tree is empty.");
+    }
+    BinaryTree<String> outputTree = new BinaryTree<>();
+    outputTree.setRoot(new Node<String>());
+    fizzBuzz(inputTree.getRoot(),outputTree.getRoot());
+    return outputTree;
+  }
+
+  public static void fizzBuzz(Node<Integer> inputRoot,Node<String> outputRoot) {
+    if(isNull(inputRoot)) {
+      return;
+    }
+
+    Integer inputValue = inputRoot.getValue();
+    if(inputValue%5 == 0 && inputValue%3 == 0) {
+      outputRoot.setValue("FizzBuzz");
+    } else if(inputValue%3 == 0) {
+      outputRoot.setValue("Fizz");
+    } else if(inputValue%5 == 0) {
+      outputRoot.setValue("Buzz");
+    } else { outputRoot.setValue(inputValue.toString()); }
+
+    if(!isNull(inputRoot.getLeft())) {
+      Node<String> newNode = new Node<>();
+      outputRoot.setLeft(newNode);
+      fizzBuzz(inputRoot.getLeft(),outputRoot.getLeft());
+    }
+    if(!isNull(inputRoot.getRight())) {
+      Node<String> newNode = new Node<>();
+      outputRoot.setRight(newNode);
+      fizzBuzz(inputRoot.getRight(),outputRoot.getRight());
+    }
+  }
+
 
   public Node<T> getRoot() {
     return root;

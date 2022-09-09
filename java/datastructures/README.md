@@ -291,7 +291,7 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 - *testAdd* creates three binary search trees with the same values provided in a different order, then traverses each tree to confirm that the values are all present in the expected position.
 - *testContains* creates a binary search tree, then confirms that calling contains() on that tree will return true if the provided value is in the tree, and false if it is not.
 
-### Challenge 15
+### Challenge 16
 
 Add a method to the BinaryTree class that returns the highest value stored in a tree of integers.
 
@@ -311,3 +311,49 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 #### Testing
 
 - *testFindMax* confirms that calling *getMax* on a test tree returns the expected maximum value (or, if the test tree has no nodes, throws an exception).
+
+### Challenge 17
+
+Add a method to the BinaryTree class that traverses a list breadth-wise and returns a list of values in the order they are encountered.
+
+Location: [lib/src/main/java/datastructures/trees/BinaryTree.java](lib/src/main/java/datastructures/trees/BinaryTree.java);
+Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java/datastructures/trees/TreesTest.java)
+
+#### Whiteboard
+
+![Challenge 17 Whiteboard](./lib/src/main/java/resources/challenge-17-whiteboard.png)
+
+#### BinaryTree.java
+
+- Methods
+  - *breadthFirst(BinaryTree tree)* checks if the tree is empty and returns an exception if yes. If no, it creates an empty queue and ArrayList and enqueues the root value of the tree. While the front node of the queue is not null, it enqueues the left and right children of the front node (if present), adds the value of the front node to the list of values, and dequeues the front node. When all nodes have been processed, returns the ArrayList of values. Efficiency: time & space are both O(n); the method always has to traverse the entire tree, but only once, and the size of the queue and ArrayList scale linearly with the size of the input.
+
+#### Testing
+
+- *testBreadthFirst* confirms that calling *breadthFirst* on a test tree returns the expected list of values (or, if the test tree has no nodes, throws an exception).
+
+### Challenge 18
+
+Add a method to the BinaryTree class that takes in a k-ary tree and returns a tree in the same shape with node values as follows:
+- If the value of the corresponding node of the input tree is divisible by 3 but not 5, value is "Fizz"
+- If the value of the corresponding node of the input tree is divisible by 5 but not 3, value is "Buzz"
+- If the value of the corresponding node of the input tree is divisible by 3 and 5, value is "FizzBuzz"
+- If none of the above, the value is the value of the input node as a string
+
+Location: [lib/src/main/java/datastructures/trees/BinaryTree.java](lib/src/main/java/datastructures/trees/BinaryTree.java);
+Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java/datastructures/trees/TreesTest.java)
+
+#### Whiteboard
+
+![Challenge 18 Whiteboard](./lib/src/main/java/resources/challenge-18-whiteboard.png)
+
+#### BinaryTree.java
+
+- Methods
+  - *getFizzBuzz(BinaryTree tree)* checks if the tree is empty and returns an exception if yes. If no, it creates an output tree with a root node whose value is null and passes that root and the root of the input tree to *fizzBuzz*.
+  - *fizzBuzz(Node inputRoot, Node outputRoot)* traverses the input tree; at each node, it checks if the node is null. If yes, it continues the traversal or returns; if not, it checks if the value is divisible by 3, 5, or both, and sets the value of the corresponding node on the output tree. When all nodes have been traversed, returns output tree.
+  - Efficiency: time & space are both O(n); the method always has to traverse the entire tree, but only once, and the size of the output tree scales linearly with the size of the input.
+
+#### Testing
+
+- *testFizzBuzz* confirms that calling *getFizzBuzz* on a test tree returns the expected list of values (or, if the test tree has no nodes, throws an exception).

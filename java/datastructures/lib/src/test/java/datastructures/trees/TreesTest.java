@@ -1,6 +1,5 @@
 package datastructures.trees;
 
-import datastructures.linkedlist.LinkedList;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -155,6 +154,63 @@ public class TreesTest {
     assertEquals(4,testBabyTree.getMax());
 
     Exception exception = assertThrows(Exception.class, () -> testNullTree.getMax());
+    assertEquals("The tree is empty.", exception.getMessage());
+  }
+
+  @Test
+  void testBreadthFirst() throws Exception {
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(8));
+    testTree.getRoot().setLeft(new Node<>(13));
+    testTree.getRoot().setRight(new Node<>(1));
+    testTree.getRoot().getLeft().setLeft(new Node<>(1));
+    testTree.getRoot().getLeft().setRight(new Node<>(6));
+    testTree.getRoot().getRight().setRight(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setLeft(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setRight(new Node<>(7));
+    testTree.getRoot().getRight().getRight().setRight(new Node<>(3));
+
+    BinaryTree<Integer> testBabyTree = new BinaryTree<>();
+    testBabyTree.setRoot(new Node<>(4));
+
+    BinaryTree<Integer> testNullTree = new BinaryTree<>();
+
+    // [8,13,1,1,6,14,14,7,3]
+
+    assertEquals("[8, 13, 1, 1, 6, 14, 14, 7, 3]",BinaryTree.breadthFirst(testTree).toString());
+    assertEquals("[4]",BinaryTree.breadthFirst(testBabyTree).toString());
+
+    Exception exception = assertThrows(Exception.class, () -> BinaryTree.breadthFirst(testNullTree));
+    assertEquals("The tree is empty.", exception.getMessage());
+  }
+
+  @Test
+  void testFizzBuzz() throws Exception {
+    BinaryTree<Integer> testTree = new BinaryTree<>();
+    testTree.setRoot(new Node<>(23));
+    testTree.getRoot().setLeft(new Node<>(8));
+    testTree.getRoot().setRight(new Node<>(42));
+    testTree.getRoot().getLeft().setLeft(new Node<>(4));
+    testTree.getRoot().getLeft().setRight(new Node<>(106));
+    testTree.getRoot().getRight().setLeft(new Node<>(27));
+    testTree.getRoot().getRight().setRight(new Node<>(14));
+    testTree.getRoot().getLeft().getRight().setLeft(new Node<>(5));
+    testTree.getRoot().getLeft().getRight().setRight(new Node<>(22));
+    testTree.getRoot().getRight().getRight().setLeft(new Node<>(45));
+    testTree.getRoot().getRight().getRight().setRight(new Node<>(15));
+
+    BinaryTree<Integer> testBabyTree = new BinaryTree<>();
+    testBabyTree.setRoot(new Node<>(4));
+
+    BinaryTree<Integer> testNullTree = new BinaryTree<>();
+
+    BinaryTree<String> returnTree = BinaryTree.getFizzBuzz(testTree);
+    BinaryTree<String> returnBabyTree = BinaryTree.getFizzBuzz(testBabyTree);
+
+    assertEquals("[23, 8, 4, 106, Buzz, 22, Fizz, Fizz, 14, FizzBuzz, FizzBuzz]",returnTree.getValuesPreOrder().toString());
+    assertEquals("[4]",returnBabyTree.getValuesPreOrder().toString());
+
+    Exception exception = assertThrows(Exception.class, () -> BinaryTree.getFizzBuzz(testNullTree));
     assertEquals("The tree is empty.", exception.getMessage());
   }
 
