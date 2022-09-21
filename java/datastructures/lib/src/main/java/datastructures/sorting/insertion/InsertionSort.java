@@ -1,8 +1,8 @@
 package datastructures.sorting.insertion;
 
-public class SelectionSort {
+public class InsertionSort {
 
-  public static int[] selectionSort(int[] array) {
+  public static int[] insertionSort(int[] array) {
     for(int i = 0; i < array.length; i ++) {
       int j = i - 1;
       int temp = array[i];

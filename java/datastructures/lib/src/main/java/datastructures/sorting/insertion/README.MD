@@ -1,4 +1,4 @@
-# Selection Sort
+# Insertion Sort
 
 Step-by-step diagrams of an insertion sorting algorithm.
 
