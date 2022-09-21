@@ -44,8 +44,4 @@ public class sortingTest {
     assertEquals("[2, 3, 5, 7, 11, 13]", InsertionSort.toTestingString(testArrAlmost));
   }
 
-  @Test
-  void testScreenshotString() {
-    assertEquals("string",MergeSort.screenshotString());
-  }
 }
