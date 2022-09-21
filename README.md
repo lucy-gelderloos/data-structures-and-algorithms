@@ -20,4 +20,5 @@
 16. [Find Max in Tree](/java/datastructures/README.md)
 17. [Traverse Tree Breadth-First](/java/datastructures/README.md)
 18. [Tree FizzBuzz](/java/datastructures/README.md)
-19. [Selection Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/insertion/README.MD)
+19. [Insertion Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/insertion/README.MD)
+20. [Merge Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/merge/README.md)
