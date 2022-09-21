@@ -1,6 +1,6 @@
 # Merge Sort
 
-Step-by-step diagrams of a merge sorting algorithm.
+Step-by-step diagrams of a merge sorting algorithm. [See the code](./MergeSort.java).
 
 ## Pseudocode
 
