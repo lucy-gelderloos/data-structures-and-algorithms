@@ -167,7 +167,7 @@ n is one, so call merge on left, right, array:
 
 ![Code challenge 27, step 30](../../../resources/cc-27-30.png)
 
-left[i] is greater than right[j] (16 is not greater than 15), so array[k] becomes right[j]; increment j and k:
+left[i] is greater than right[j] (16 is greater than 15), so array[k] becomes right[j]; increment j and k:
 
 ![Code challenge 27, step 31](../../../resources/cc-27-31.png)
 
