@@ -22,3 +22,4 @@
 18. [Tree FizzBuzz](/java/datastructures/README.md)
 19. [Insertion Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/insertion/README.MD)
 20. [Merge Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/merge/README.md)
+21. [Quick Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/quick/README.md)
