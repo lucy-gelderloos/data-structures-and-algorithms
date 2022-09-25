@@ -51,17 +51,19 @@ public class HashMap<K, V> {
   }
 
   public List<K> getKeys() {
-    // Returns: Collection of keys
-    List<K> keysList = new ArrayList<K>();
+    List<K> keysList = new ArrayList<>();
     for (LinkedList<HashMapPair<K, V>> bucket :
          bucketArrayList) {
-      for(HashMapPair<K, V> hashMapPair :
-      bucket ) {
-        keysList.add((K) hashMapPair.getKey());
+      if(!bucket.isEmpty()) {
+        for (HashMapPair<K, V> hashMapPair :
+          bucket) {
+          keysList.add((K) hashMapPair.getKey());
+        }
       }
-      return keysList;
     }
-    return null;
+    if(keysList.isEmpty()) {
+      return null;
+    } else return keysList;
   }
 
   public boolean has(K key) {
