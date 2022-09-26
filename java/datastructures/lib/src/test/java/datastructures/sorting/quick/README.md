@@ -1,6 +1,6 @@
 # Quick Sort
 
-Step-by-step diagrams of a quick sorting algorithm. [See the code](./QuickSort.java) | [See the tests](../../../../../test/java/datastructures/sorting/sortingTest.java).
+Step-by-step diagrams of a quick sorting algorithm. [See the code](QuickSort.java) | [See the tests](../../../../../test/java/datastructures/sorting/sortingTest.java).
 
 ## Pseudocode
 

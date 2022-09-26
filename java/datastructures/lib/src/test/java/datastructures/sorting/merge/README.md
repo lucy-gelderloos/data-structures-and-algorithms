@@ -1,6 +1,6 @@
 # Merge Sort
 
-Step-by-step diagrams of a merge sorting algorithm. [See the code](./MergeSort.java) | [See the tests](../../../../../test/java/datastructures/sorting/sortingTest.java).
+Step-by-step diagrams of a merge sorting algorithm. [See the code](MergeSort.java) | [See the tests](../../../../../test/java/datastructures/sorting/sortingTest.java).
 
 ## Pseudocode
 
