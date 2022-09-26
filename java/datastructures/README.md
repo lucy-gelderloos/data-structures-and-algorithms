@@ -357,3 +357,52 @@ Tests: [lib/src/test/java/datastructures/trees/TreesTest.java](lib/src/test/java
 #### Testing
 
 - *testFizzBuzz* confirms that calling *getFizzBuzz* on a test tree returns the expected list of values (or, if the test tree has no nodes, throws an exception).
+
+### Challenge 26 - Insertion Sort
+
+[Readme](./lib/src/main/java/datastructures/sorting/insertion/README.MD)
+
+### Challenge 27 - Merge Sort
+
+[Readme](./lib/src/main/java/datastructures/sorting/merge/README.md)
+
+### Challenge 28 - QuickSort
+
+[Readme](./lib/src/main/java/datastructures/sorting/quick/README.md)
+
+### Challenge 29 - Implement a HashMap
+
+Implement a HashTable class with *set()*, *get()*, *has()*, *getKeys()*, and *hash()* methods.
+
+Location: [lib/src/main/java/datastructures/hashmap/HashMap.java](lib/src/main/java/datastructures/hashmap/HashMap.java); [lib/src/main/java/datastructures/hashmap/HashMapPair.java](lib/src/main/java/datastructures/hashmap/HashMapPair.java);
+Tests: [lib/src/test/java/datastructures/hashmap/HashMapTest.java](lib/src/test/java/datastructures/hashmap/HashMapTest.java)
+
+#### HashMap.java
+
+- Properties
+  - *ArrayList<LinkedList<HashMapPair<K, V>>>* bucketArrayList
+  - *int* size
+- Constructors
+  - *HashMap(int size)* creates a new empty hashmap of size *size*
+- Methods
+  - *set(K key, V value)* calls *hash* on the key to find its index. It then calls *get* on the provided key; if *get* returns a value other than the value provided, it replaces the existing value with the provided value. If not, it creates a new HashMapPair using the provided key and value, retrieves the linked list at the hashed index, adds the new hash map pair to the list, and sets it to the hashed index again. Time efficiency: could be as high as O(n^2), if the for loops (one in *get*, one setting a new value to an existing key) have to loop through all values (if they were all at the same index, for example). Space efficiency: O(n) because the space scales linearly with the addition of new elements.
+  - *get(K key)* first hashes the provided key to determine its index in the hashmap, then retrieves the linked list from that index. It iterates through the linked list to find the value associated with the provided key and returns that value. If the key is not in the list, returns null. Time efficiency: could be as high as O(n), if the for loop to find the provided key has to loop through all values (if they were all at the same index, for example). Space efficiency: O(1) because the size of the data structure doesn't change.
+  - *getKeys()* creates an empty ArrayList to hold the keys. It loops through every element in the hashmap, checking if it is empty. If no, it loops through each key-value pair in the linked list, adding the key value from each node of the list into the list of keys. After looping through the whole hashmap, checks if the list of keys is still empty. If no, it returns the list, and if yes, it returns null. Time efficiency: O(n) because it has to loop through every element once and only once. Space efficiency: O(n) because the size of the output scales linearly with the size of the input.
+  - *has(K key)* first calls *getKeys*. If the result is not null and the provided key is in the list, returns true; otherwise, returns false. Time efficiency: O(n) because *getKeys* and *contains* have loops, but they're not nested. Space efficiency O(1) because the size of the data structure doesn't change.
+  - *hash(K key)* uses Java's built-in *hashcode()* method to generate a hash code for the provided key.
+
+#### HashMapPair.java
+
+- Properties
+  - *K* key
+  - *V* value
+- Constructor
+  - *HashMapPair(key, value)* creates a new hashmap pair with the provided key and value.
+
+#### Testing
+
+- *testCreateHashMap* creates an empty hashmap, then confirms that calling *get* and *getKeys* on the empty map successfully returns null.
+- *testAddToHashMap* creates an empty hashmap, calls *set* several times with test key-value pairs, then calls *has* to confirm that each key has been successfully added.
+- *testGet* creates an empty hashmap, calls *set* several times, then confirms that calling *get* on the provided keys returns the expected value (or null, if the key is not in the map).
+- *testGetKeys*  creates an empty hashmap, calls *set* several times, then calls *getKeys* and confirms whether the resulting list contains the provided keys.
+- *testCollision* creates an empty hashmap of size one, calls *set* several times. It confirms that the keys hash to the same value (since the map has only one available index), then calls *get* and *getKeys* to make sure the provided values are in the map. It then calls *set* with an existing key but a new value, then confirms that calling *get* and passing in that key returns the expected value.
