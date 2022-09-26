@@ -1,5 +1,8 @@
 package datastructures.hashmap;
 
+import datastructures.linkedlist.Queue;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -76,6 +79,49 @@ public class HashMap<K, V> {
 
   public int hash(K key){
     return Math.abs(key.hashCode()) % size;
+  }
+
+  public static String repeatedWord(String inputString) throws Exception {
+    if(inputString.equals("")) {
+      throw new Exception("The string is empty");
+    }
+    String allowedCharactersString = "abcdefghijklmnopqrstuvwxyz'-";
+    Queue<String> holdingQueue = new Queue<>();
+    HashMap<String,String> holdingMap = new HashMap<>(1000);
+
+    for(int i = 0; i < inputString.length(); i++) {
+      String currentChar = "" + inputString.charAt(i);
+      // if the current character is in the allowed characters string, add it to the queue
+      // https://stackoverflow.com/questions/56056419/how-can-i-convert-a-char-to-charsequence
+      if(allowedCharactersString.contains(currentChar.toLowerCase())) {
+        holdingQueue.enqueue(currentChar.toLowerCase());
+      }
+      // if the current character is not in the allowed characters string
+      else {
+        if(!holdingQueue.isEmpty()) {
+          // if the holding queue is not empty, create a temp string, then iterate through the queue to find the word to check
+          String tempString = "";
+          while(!holdingQueue.isEmpty()) {
+            // if the next character is an apostrophe, dequeue it to a separate string
+            if(holdingQueue.peek().equals("\'")) {
+              String apostrophe = holdingQueue.dequeue();
+              // if the character following the apostrophe is an "s", dequeue it
+              if(holdingQueue.peek().equals("s")) {
+                holdingQueue.dequeue();
+              }
+              // otherwise, add the apostrophe to the string and continue
+              else tempString += apostrophe;
+            }
+            else tempString += holdingQueue.dequeue();
+          }
+          if(!holdingMap.has(tempString)) {
+            holdingMap.set(tempString,tempString);
+          }
+          else return tempString;
+        }
+      }
+    }
+    return "There are no repeated words in the string.";
   }
 
 }
