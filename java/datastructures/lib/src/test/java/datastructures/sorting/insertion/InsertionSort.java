@@ -3,7 +3,7 @@ package datastructures.sorting.insertion;
 public class InsertionSort {
 
   public static int[] insertionSort(int[] array) {
-    for(int i = 0; i < array.length; i ++) {
+    for(int i = 1; i < array.length; i ++) {
       int j = i - 1;
       int temp = array[i];
 

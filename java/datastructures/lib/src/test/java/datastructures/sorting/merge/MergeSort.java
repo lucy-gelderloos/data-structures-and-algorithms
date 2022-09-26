@@ -51,12 +51,4 @@ public class MergeSort {
     return array;
   }
 
-  public static String screenshotString() {
-    String screenshots = "";
-    for(int i = 1; i <= 40; i ++) {
-      screenshots += "![Code challenge 27, step " + i + "](../../../resources/cc-27-" + i + ".png)\n\n";
-    }
-    return screenshots;
-  }
-
 }
