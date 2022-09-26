@@ -83,7 +83,7 @@ public class HashMap<K, V> {
 
   public static String repeatedWord(String inputString) throws Exception {
     if(inputString.equals("")) {
-      throw new Exception("The string is empty");
+      throw new Exception("The string is empty.");
     }
     String allowedCharactersString = "abcdefghijklmnopqrstuvwxyz'-";
     Queue<String> holdingQueue = new Queue<>();
