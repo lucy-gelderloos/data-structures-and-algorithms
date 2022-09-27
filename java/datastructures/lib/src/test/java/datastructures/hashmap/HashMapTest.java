@@ -72,4 +72,21 @@ public class HashMapTest {
     assertEquals("NewValue-6",testHashMap.get(-6));
   }
 
+  @Test
+  public void testRepeatedWord() throws Exception {
+    String noRepeats = "This is a test string with no repeated words.";
+    String possessiveCaps = "This String's repeated word should be string.";
+    String apostrophesEverywhere = "Oh, perhaps you hav'n't got any, he said quickly. No matter though, I know many chaps that hav'n't got any,—good luck to 'em; and they are all the better off for it. A soul's a sort of a fifth wheel to a wagon.";
+    String longString = "An eagle flew thrice round Tarquin's head, removing his cap to replace it, and thereupon Tanaquil, his wife, declared that Tarquin would be king of Rome. But only by the replacing of the cap was that omen accounted good. Ahab's hat was never restored; the wild hawk flew on and on with it; far in advance of the prow: and at last disappeared; while from the point of that disappearance, a minute black spot was dimly discerned, falling from that vast height into the sea.";
+
+
+    assertEquals("There are no repeated words in the string.",HashMap.repeatedWord(noRepeats));
+    assertEquals("string",HashMap.repeatedWord(possessiveCaps));
+    assertEquals("hav'n't",HashMap.repeatedWord(apostrophesEverywhere));
+    assertEquals("his",HashMap.repeatedWord(longString));
+
+    Exception exception = assertThrows(Exception.class, () -> HashMap.repeatedWord(""));
+    assertEquals("The string is empty.", exception.getMessage());
+  }
+
 }

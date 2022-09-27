@@ -23,3 +23,5 @@
 19. [Insertion Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/insertion/README.MD)
 20. [Merge Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/merge/README.md)
 21. [Quick Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/quick/README.md)
+22. [HashMap](/java/datastructures/README.md)
+23. [HashMap repeatedWords](/java/datastructures/README.md)

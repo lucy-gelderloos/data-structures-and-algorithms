@@ -406,3 +406,28 @@ Tests: [lib/src/test/java/datastructures/hashmap/HashMapTest.java](lib/src/test/
 - *testGet* creates an empty hashmap, calls *set* several times, then confirms that calling *get* on the provided keys returns the expected value (or null, if the key is not in the map).
 - *testGetKeys*  creates an empty hashmap, calls *set* several times, then calls *getKeys* and confirms whether the resulting list contains the provided keys.
 - *testCollision* creates an empty hashmap of size one, calls *set* several times. It confirms that the keys hash to the same value (since the map has only one available index), then calls *get* and *getKeys* to make sure the provided values are in the map. It then calls *set* with an existing key but a new value, then confirms that calling *get* and passing in that key returns the expected value.
+
+### Challenge 31 - repeatedWords
+
+Write a function called repeatedWord that takes in a string and returns the first word that appears in the string more than once.
+
+Location: [lib/src/main/java/datastructures/hashmap/HashMap.java](lib/src/main/java/datastructures/hashmap/HashMap.java)
+Tests: [lib/src/test/java/datastructures/hashmap/HashMapTest.java](lib/src/test/java/datastructures/hashmap/HashMapTest.java)
+
+#### Whiteboard
+
+![Challenge 31 Whiteboard](./lib/src/main/java/resources/challenge-31-whiteboard.png)
+
+#### HashMap.java
+
+- Methods
+  - *repeatedWord(String inputString)* first creates a string to hold all allowed characters, a holding queue to temporarily store characters, and a holding hashmap to store each word. It then iterates through each character in the string and checks it against the allowed character string. If the character is in the allowed string, it is set to lower case and added to the holding queue. If the character is not in the allowed string, and the holding queue is not empty, the function dequeues each character in the holding queue to form a word. If the word ends in "'s", those two characters are discarded. The function then checks to see if an object with the key of that word exists in the table. If no, the word is added to the table with itself as the key and the value; if yes, the function returns that word. If the string is empty, throws an exception. Time efficiency: minimum O(n); space efficiency: O(n).
+
+#### Testing
+
+- *testRepeatedWord* creates several testing strings:
+  - One with no repeating words
+  - One where the repeated word is possessive and capitalized in one instance but not the other
+  - One with a bunch of weird punctuation
+  - A long one
+  and confirms that each one returns the expected result when passed to *repeatedWord*
