@@ -1,5 +1,6 @@
 package datastructures.trees;
 
+import datastructures.hashmap.HashMap;
 import datastructures.linkedlist.Queue;
 
 import java.util.ArrayList;
@@ -36,7 +37,6 @@ public class BinaryTree<T> {
       preOrder(root.getRight(), values);
     }
   }
-
   public ArrayList<T> getValuesInOrder() {
     ArrayList<T> values = new ArrayList<>();
     inOrder(this.root, values);
