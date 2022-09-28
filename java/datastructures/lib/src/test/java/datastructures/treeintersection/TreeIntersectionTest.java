@@ -34,12 +34,12 @@ public class TreeIntersectionTest {
     BinaryTree<Integer> testTreeThree = new BinaryTree<>();
     testTreeThree.setRoot(new Node<>(10));
     testTreeThree.getRoot().setRight(new Node<>(30));
-    testTreeThree.getRoot().getLeft().setRight(new Node<>(50));
+    testTreeThree.getRoot().setLeft(new Node<>(50));
     testTreeThree.getRoot().getRight().setRight(new Node<>(70));
 
     BinaryTree<Integer> testTreeNull = new BinaryTree<>();
 
-    assertEquals("[2,4,6]", TreeIntersection.treeIntersection(testTreeOne,testTreeTwo).toString());
+    assertEquals("[2, 4, 6]", TreeIntersection.treeIntersection(testTreeOne,testTreeTwo).toString());
     assertEquals("[]", TreeIntersection.treeIntersection(testTreeOne,testTreeThree).toString());
     assertEquals("[]", TreeIntersection.treeIntersection(testTreeOne,testTreeNull).toString());
 
