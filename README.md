@@ -25,3 +25,4 @@
 21. [Quick Sort](/java/datastructures/lib/src/main/java/datastructures/sorting/quick/README.md)
 22. [HashMap](/java/datastructures/README.md)
 23. [HashMap repeatedWords](/java/datastructures/README.md)
+24. [Tree Intersection](/java/datastructures/README.md)

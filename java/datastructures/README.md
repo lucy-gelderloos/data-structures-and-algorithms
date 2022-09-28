@@ -431,3 +431,30 @@ Tests: [lib/src/test/java/datastructures/hashmap/HashMapTest.java](lib/src/test/
   - One with a bunch of weird punctuation
   - A long one
   and confirms that each one returns the expected result when passed to *repeatedWord*
+
+### Challenge 32 - treeIntersection
+
+Write a function called treeIntersection that takes in two binary trees and returns a collection of all values that appear in both trees.
+
+Location: [lib/src/main/java/datastructures/TreeIntersection/TreeIntersection.java](lib/src/main/java/datastructures/TreeIntersection/TreeIntersection.java)
+Tests: [lib/src/test/java/datastructures/treeintersection/TreeIntersectionTest.java](lib/src/test/java/datastructures/treeintersection/TreeIntersectionTest.java)
+
+#### Whiteboard
+
+![Challenge 32 Whiteboard](./lib/src/main/java/resources/challenge-32-whiteboard.png)
+
+#### TreeIntersection.java
+
+- Methods
+  - *treeIntersection(BinaryTree treeOne, BinaryTree treeTwo)* first checks if both trees are empty; if yes, it throws an exception. If no, it creates an empty array to hold the return values. If neither tree is empty, it traverses both and creates an arrayList of each tree's values. It then creates a hashmap whose size is the size of the list of the first tree's values, and iterates over that list to add each value to the hashmap. Next, it iterates over the second list and checks to see if each value is already in the hashmap. If yes, it adds that value to the return list. When the for loop has concluded, it returns the arrayList of values. Time efficiency: minimum O(n) because it must iterate over each tree and the list of each tree's values, but those iterations are not nested; could be as high as O(n^2) because checking the hashmap for a value can be exponential. Space efficiency: O(n) because the size of structures created scales linearly with the size of the input.
+
+#### Testing
+
+- *testTreeIntersection* creates several testing trees:
+  - One to compare the rest with
+  - One with some overlapping values
+  - One with no overlapping values
+  - An empty one
+  and confirms that each one returns the expected result when passed to *treeIntersection*
+
+
