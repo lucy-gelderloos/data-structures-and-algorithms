@@ -26,3 +26,4 @@
 22. [HashMap](/java/datastructures/README.md)
 23. [HashMap repeatedWords](/java/datastructures/README.md)
 24. [Tree Intersection](/java/datastructures/README.md)
+25. [Hashmap Left Join](/java/datastructures/README.md)

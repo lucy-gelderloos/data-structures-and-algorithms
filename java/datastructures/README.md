@@ -456,5 +456,29 @@ Tests: [lib/src/test/java/datastructures/treeintersection/TreeIntersectionTest.j
   - One with no overlapping values
   - An empty one
   and confirms that each one returns the expected result when passed to *treeIntersection*
+  -
+### Challenge 32 - HashMap Left Join
+
+Write a function called leftJoin that performs a simplified left join between two hashmaps.
+
+Location: [lib/src/main/java/datastructures/hashmap/HashMap.java](lib/src/main/java/datastructures/hashmap/HashMap.java)
+Tests: [lib/src/test/java/datastructures/hashmap/HashMapTest.java](lib/src/test/java/datastructures/hashmap/HashMapTest.java)
+
+#### Whiteboard
+
+![Challenge 33 Whiteboard](./lib/src/main/java/resources/challenge-33-whiteboard.png)
+
+#### TreeIntersection.java
+
+- Methods
+  - *leftJoin(HashMap<String, String> leftHashMap, HashMap<String, String> rightHashMap* first creates an empty arraylist to hold the return values, then calls *getKeys* on the left HashMap to get a list of keys. It iterates through the list of keys, appending each key and its value to a temporary string. It then calls *has* on the right HashMap to check if it contains the current key; if yes, it gets that value from the right HashMap and appends it to the temporary string. If no, it appends "null". It then adds that string to the return arraylist. When all keys have been iterated over, returns the arraylist. Time efficiency: minimum O(n) because it must iterate over the entire left hashmap; could be as high as O(n^2) because checking the hashmap for a value can be exponential. Space efficiency: O(n) because the size of any new structures created scales linearly with the size of the input.
+
+#### Testing
+
+- *testLeftJoin* creates three hashmaps:
+  - One to compare the rest with
+  - One with some overlapping values
+  - One with no overlapping values
+  and confirms that each one returns the expected result when passed to *leftJoin*
 
 

@@ -2,7 +2,6 @@ package datastructures.hashmap;
 
 import datastructures.linkedlist.Queue;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -124,4 +123,19 @@ public class HashMap<K, V> {
     return "There are no repeated words in the string.";
   }
 
+  public static ArrayList<String> leftJoin(HashMap<String, String> leftHashMap, HashMap<String, String> rightHashMap) {
+    List<String> leftKeysList = leftHashMap.getKeys();
+    ArrayList<String> returnArray = new ArrayList<>();
+    for(String key :
+      leftKeysList) {
+      String keyValueString = "[" + key + ", " + leftHashMap.get(key) + ", ";
+      if(rightHashMap.has(key)) {
+        keyValueString += rightHashMap.get(key) + "]";
+      } else {
+        keyValueString += null + "]";
+      }
+      returnArray.add(keyValueString);
+    }
+    return returnArray;
+  }
 }
