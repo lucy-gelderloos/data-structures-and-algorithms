@@ -89,4 +89,29 @@ public class HashMapTest {
     assertEquals("The string is empty.", exception.getMessage());
   }
 
+  @Test
+  public void testLeftJoin() {
+    HashMap<String, String> testLeftMap = new HashMap<>(5);
+    testLeftMap.set("diligent","employed");
+    testLeftMap.set("fond","enamored");
+    testLeftMap.set("guide","usher");
+    testLeftMap.set("outfit","garb");
+    testLeftMap.set("wrath","anger");
+
+    HashMap<String, String> testRightMapOverlap = new HashMap<>(5);
+    testRightMapOverlap.set("diligent","idle");
+    testRightMapOverlap.set("fond","averse");
+    testRightMapOverlap.set("guide","follow");
+    testRightMapOverlap.set("flow","jam");
+    testRightMapOverlap.set("wrath","delight");
+
+    HashMap<String, String> testRightMapNoOverlap = new HashMap<>(1);
+    testRightMapNoOverlap.set("flow","jam");
+
+    assertEquals("[[diligent, employed, idle], [wrath, anger, delight], [guide, usher, follow], [fond, enamored, averse], [outfit, garb, null]]",HashMap.leftJoin(testLeftMap,testRightMapOverlap).toString());
+
+    assertEquals("[[diligent, employed, null], [wrath, anger, null], [guide, usher, null], [fond, enamored, null], [outfit, garb, null]]",HashMap.leftJoin(testLeftMap,testRightMapNoOverlap).toString());
+
+
+  }
 }
