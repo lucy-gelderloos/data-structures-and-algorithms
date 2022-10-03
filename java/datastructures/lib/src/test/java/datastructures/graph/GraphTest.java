@@ -12,7 +12,7 @@ public class GraphTest {
 
     assertEquals(0,testGraph.getNodeCount());
     assertEquals(0,testGraph.size());
-    assertEquals(0,testGraph.adjacencyLists.size());
+    assertEquals(0,testGraph.adjacencyList.size());
   }
 
   @Test
@@ -22,7 +22,7 @@ public class GraphTest {
     Node<Integer> testNode6 = testGraph.addNode(6);
 
     assertEquals(2,testGraph.size());
-    assertEquals(0,testGraph.adjacencyLists.get(testNode4).size());
+    assertEquals(0,testGraph.adjacencyList.get(testNode4).size());
 
     Exception exception = assertThrows(Exception.class, () -> testGraph.addNode(4));
     assertEquals("This value is already in the graph.",exception.getMessage());
@@ -39,8 +39,8 @@ public class GraphTest {
     testGraph.addEdge(testNode4,testNode6);
     testGraph.addEdge(testNode2,testNode8,3);
 
-    assertEquals(6,testGraph.adjacencyLists.get(testNode4).getFirst().getDestination().getValue());
-    assertEquals(3,testGraph.adjacencyLists.get(testNode2).getFirst().getWeight());
+    assertEquals(6,testGraph.adjacencyList.get(testNode4).getFirst().getDestination().getValue());
+    assertEquals(3,testGraph.adjacencyList.get(testNode2).getFirst().getWeight());
 
     Exception exception = assertThrows(Exception.class, () -> testGraph.addEdge(testNode4,testNode5));
     assertEquals("Both nodes must be in the graph.",exception.getMessage());

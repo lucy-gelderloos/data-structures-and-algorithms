@@ -481,4 +481,50 @@ Tests: [lib/src/test/java/datastructures/hashmap/HashMapTest.java](lib/src/test/
   - One with no overlapping values
   and confirms that each one returns the expected result when passed to *leftJoin*
 
+### Challenge 35 - Graph Implementation
 
+Implement a graph.
+
+Location: [lib/src/main/java/datastructures/graph/Graph.java](lib/src/main/java/datastructures/graph/Graph.java); [lib/src/main/java/datastructures/graph/Node.java](lib/src/main/java/datastructures/graph/Node.java); [lib/src/main/java/datastructures/graph/Edge.java](lib/src/main/java/datastructures/graph/Edge.java)
+Tests: [lib/src/test/java/datastructures/graph/GraphTest.java](lib/src/test/java/datastructures/graph/GraphTest.java)
+
+#### Graph.java
+
+- Properties
+  - *HashMap<Node<T>, LinkedList<Edge<T>>>* adjacencyList
+  - *int* nodeCount
+- Constructor
+  - *Graph(int maxNodes)* creates a new adjacencyList hashmap whose size is the provided integer. The adjacencyList's keys are nodes, and its values are linked lists of edges. (Note that this implementation uses java.util.HashMap, not the HashMap class in this library).
+- Methods
+  - *addValue(T value)* creates a new node whose value is the provided value, then checks if a node with that value is in the adjacencyList already. If yes, it throws an exception (may remove this in the future); if no, it creates a new linked list of edges, then saves both values to the adjacencyList with the new node as the key and the list of edges as the value. Also increments the graph's nodeCount property. Time efficiency O(1) because creating structures and adding to hashmaps are both O(1). Space efficiency O(n) because the size of the graph scales linearly with the size of the input.
+  - *addEdge(Node<T> start, Node<T> destination)* calls *addEdge*, passing in start, destination, and 0.
+  - *addEdge(Node<T> start, Node<T> destination, int weight)* first checks if both nodes are in the graph; if no, it throws an exception. If yes, it creates a new Edge object, passing in destination and weight. It then retrieves the value of the start node (a linked list of edges) from the adjacencyList, adds the new edge, and saves the node and list back to the adjacencyList. Time efficiency as low as O(1); up to O(n^2) if the graph is poorly designed and nodes have to share indices in the hashmap. Space efficiency O(1) because edges are the same size each time.
+  - *getNodes()* creates an empty linked list, then calls *getKeys()* on the adjacencyList, iterates through the resulting list, adds each value to the linked list, and returns it. Time efficiency O(n) because it iterates through both the adjacencyList and the list of keys, but loops are not nested. Space efficiency O(n) because the output size scales linearly with the size of the input.
+  - *getNeighbors(Node<T> node)* uses the provided node as the key to return that node's linked list of edges from the adjacencyList. Time efficiency: O(1) unless the hashmap is very poorly designed. Space efficiency: O(1) because does not create new data structures.
+  - *size()* returns the graph's nodeCount property. Time and space efficiency both O(1).
+
+#### Node.java
+
+- Properties
+  - *T* value
+- Constructor
+  - *Node(T value)* creates a new node whose value is the provided value.
+- Methods
+  - *hashCode()* hashes the node's value and returns an integer. Overrides this method in the supertype.
+
+#### Edge.java
+
+- Properties
+  - *Node<T>* destination
+  - int weight
+- Constructors
+  - *Edge(Node<T> destination)* creates a new edge whose destination is the provided node and whose weight is 0.
+  - *Edge(Node<T> destination, int weight)* creates a new node whose destination is the provided node and whose weight is the provided integer.
+
+#### Testing
+
+- *testCreateGraph()* creates an empty graph, then confirms that its size and nodeCount are both zero and that it has an empty adjacencyList.
+- *testAddNode()* creates a graph and adds two nodes to it, then confirms that the graph's size is 2, that the nodes have empty lists to hold edges, and that the expected exception is thrown if the value is already in the graph.
+- *testAddEdge()* creates a graph and adds nodes and edges; it also creates a node that is not added to the graph. It then tests that the edges point to the appropriate destination and have the correct weight associated with them, and that an attempt to add an edge to a node that is not in the graph with throw an exception.
+- *testGetNodes()* creates a graph and adds a number of nodes, then calls *getNodes()* on the graph and checks if each node is in the list.
+- *testGetNeighbors()* creates a test graph and adds nodes and edges, then calls *getNeighbors* on one of the nodes and confirms that the node's edges are included in the returned list.
