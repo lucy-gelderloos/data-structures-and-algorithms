@@ -29,7 +29,7 @@ public class Graph<T extends Comparable<? super T>> implements Comparable<Graph<
 
   public void addEdge(Node<T> start, Node<T> destination, int weight) throws Exception {
     if(!adjacencyLists.containsKey(start) || !adjacencyLists.containsKey(destination)) {
-      throw new Exception("Both keys must be in the graph.");
+      throw new Exception("Both nodes must be in the graph.");
     }
     Edge<T> newEdge = new Edge<>(destination,weight);
     LinkedList<Edge<T>> edgeList = adjacencyLists.get(start);
