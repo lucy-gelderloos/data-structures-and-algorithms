@@ -457,7 +457,7 @@ Tests: [lib/src/test/java/datastructures/treeintersection/TreeIntersectionTest.j
   - An empty one
   and confirms that each one returns the expected result when passed to *treeIntersection*
   -
-### Challenge 32 - HashMap Left Join
+### Challenge 33 - HashMap Left Join
 
 Write a function called leftJoin that performs a simplified left join between two hashmaps.
 
