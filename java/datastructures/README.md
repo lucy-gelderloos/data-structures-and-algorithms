@@ -536,6 +536,10 @@ Write a method that, given a route map (formatted as a graph) and an itinerary (
 Location: [lib/src/main/java/datastructures/graph/Graph.java](lib/src/main/java/datastructures/graph/Graph.java)
 Tests: [lib/src/test/java/datastructures/graph/GraphTest.java](lib/src/test/java/datastructures/graph/GraphTest.java)
 
+#### Whiteboard
+
+![Challenge 37 Whiteboard](./lib/src/main/java/resources/challenge-37-whiteboard.png)
+
 #### Graph.java
 
 - Methods
