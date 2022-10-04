@@ -53,6 +53,25 @@ public class Graph<T extends Comparable<? super T>> implements Comparable<Graph<
     return nodeCount;
   }
 
+  public static Integer businessTrip(Graph<String> routeMap, String[] itinerary) {
+    int totalCost = 0;
+    for(int i = 0; i < itinerary.length - 1; i++) {
+      Node<String> originNode = new Node<>(itinerary[i]);
+      Node<String> destinationNode = new Node<>(itinerary[i + 1]);
+      LinkedList<Edge<String>> neighborsList = routeMap.getNeighbors(originNode);
+      for(Edge<String> edge : neighborsList) {
+        if(edge.getDestination().equals(destinationNode)) {
+          totalCost += edge.getWeight();
+        }
+      }
+    }
+    if(totalCost == 0) {
+      return null;
+    } else {
+      return totalCost;
+    }
+  }
+
   @Override
   public int compareTo(Graph<T> o)
   {

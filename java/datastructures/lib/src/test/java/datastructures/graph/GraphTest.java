@@ -74,4 +74,41 @@ public class GraphTest {
     assertEquals(4,testGraph.getNeighbors(testNode2).get(1).getDestination().getValue());
     assertEquals(3,testGraph.getNeighbors(testNode2).get(2).getWeight());
   }
+
+  @Test
+  public void testBusinessTrip() throws Exception {
+    Graph<String> routeMap = new Graph<>(8);
+    Node<String> seattleNode = routeMap.addNode("Seattle");
+    Node<String> vancouverNode = routeMap.addNode("Vancouver");
+    Node<String> anchorageNode = routeMap.addNode("Anchorage");
+    Node<String> boiseNode = routeMap.addNode("Boise");
+    Node<String> denverNode = routeMap.addNode("Denver");
+    Node<String> laNode = routeMap.addNode("Los Angeles");
+    Node<String> slcNode = routeMap.addNode("Salt Lake City");
+    Node<String> portlandNode = routeMap.addNode("Portland");
+    routeMap.addEdge(seattleNode,vancouverNode,110);
+    routeMap.addEdge(seattleNode,boiseNode,90);
+    routeMap.addEdge(seattleNode,portlandNode,150);
+    routeMap.addEdge(seattleNode,laNode,200);
+    routeMap.addEdge(seattleNode,denverNode,125);
+    routeMap.addEdge(anchorageNode,vancouverNode,105);
+    routeMap.addEdge(anchorageNode,boiseNode,75);
+    routeMap.addEdge(vancouverNode,anchorageNode,105);
+    routeMap.addEdge(vancouverNode,seattleNode,110);
+    routeMap.addEdge(boiseNode,seattleNode,90);
+    routeMap.addEdge(portlandNode,seattleNode,150);
+    routeMap.addEdge(laNode,seattleNode,200);
+    routeMap.addEdge(denverNode,seattleNode,125);
+    routeMap.addEdge(denverNode,slcNode,140);
+    routeMap.addEdge(slcNode,denverNode,140);
+
+    String[] trip125 = new String[]{"Seattle","Denver"};
+    String[] trip235 = new String[]{"Vancouver","Seattle","Denver"};
+    String[] tripNull = new String[]{"Seattle","Salt Lake City"};
+    String[] tripAll = new String[]{"Salt Lake City","Denver","Seattle","Los Angeles","Seattle","Portland","Seattle","Boise","Anchorage","Vancouver"};
+    assertEquals(125,Graph.businessTrip(routeMap,trip125));
+    assertEquals(235,Graph.businessTrip(routeMap,trip235));
+    assertEquals(1160,Graph.businessTrip(routeMap,tripAll));
+    assertNull(Graph.businessTrip(routeMap,tripNull));
+  }
 }

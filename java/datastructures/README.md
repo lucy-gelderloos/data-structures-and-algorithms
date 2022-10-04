@@ -528,3 +528,23 @@ Tests: [lib/src/test/java/datastructures/graph/GraphTest.java](lib/src/test/java
 - *testAddEdge()* creates a graph and adds nodes and edges; it also creates a node that is not added to the graph. It then tests that the edges point to the appropriate destination and have the correct weight associated with them, and that an attempt to add an edge to a node that is not in the graph with throw an exception.
 - *testGetNodes()* creates a graph and adds a number of nodes, then calls *getNodes()* on the graph and checks if each node is in the list.
 - *testGetNeighbors()* creates a test graph and adds nodes and edges, then calls *getNeighbors* on one of the nodes and confirms that the node's edges are included in the returned list.
+
+### Challenge 37 - businessTrip
+
+Write a method that, given a route map (formatted as a graph) and an itinerary (formatted as an array of city names), determines whether the itinerary can be completed using only direct flights. If yes, returns the total cost of the trip; if no, returns null.
+
+Location: [lib/src/main/java/datastructures/graph/Graph.java](lib/src/main/java/datastructures/graph/Graph.java)
+Tests: [lib/src/test/java/datastructures/graph/GraphTest.java](lib/src/test/java/datastructures/graph/GraphTest.java)
+
+#### Whiteboard
+
+![Challenge 37 Whiteboard](./lib/src/main/java/resources/challenge-37-whiteboard.png)
+
+#### Graph.java
+
+- Methods
+  - *businessTrip(Graph<String> routeMap, String[] itinerary)* creates an int to track the total cost and sets it to zero. It then iterates through the array. For each value, it calls *getNeighbors* on that node, then iterates through the resulting list. If the next city in the itinerary array is the destination of any of the edges of the original node, adds the weight of that edge to the total cost; if not, returns null. Returns the total cost of the trip, if possible. Time efficiency O(n^2) because it has to iterate over the itinerary and each entry in each city's neighbors list. Space efficiency O(1) because the only additional structure created is the totalCost integer.
+
+#### Testing
+
+- *testBusinessTrip* creates a graph with a number of nodes and edges, where not all nodes are connected to each other. It then creates several itinerary arrays and confirms that passing those arrays to the businessTrip method with the created route map produces the expected result.
