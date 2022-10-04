@@ -105,9 +105,10 @@ public class GraphTest {
     String[] trip125 = new String[]{"Seattle","Denver"};
     String[] trip235 = new String[]{"Vancouver","Seattle","Denver"};
     String[] tripNull = new String[]{"Seattle","Salt Lake City"};
-
+    String[] tripAll = new String[]{"Salt Lake City","Denver","Seattle","Los Angeles","Seattle","Portland","Seattle","Boise","Anchorage","Vancouver"};
     assertEquals(125,Graph.businessTrip(routeMap,trip125));
     assertEquals(235,Graph.businessTrip(routeMap,trip235));
+    assertEquals(1160,Graph.businessTrip(routeMap,tripAll));
     assertNull(Graph.businessTrip(routeMap,tripNull));
   }
 }

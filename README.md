@@ -28,3 +28,4 @@
 24. [Tree Intersection](/java/datastructures/README.md)
 25. [Hashmap Left Join](/java/datastructures/README.md)
 26. [Graph Implementation](/java/datastructures/README.md)
+27. [Business Trip](/java/datastructures/README.md)
