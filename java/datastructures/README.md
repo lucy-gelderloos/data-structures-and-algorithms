@@ -529,6 +529,26 @@ Tests: [lib/src/test/java/datastructures/graph/GraphTest.java](lib/src/test/java
 - *testGetNodes()* creates a graph and adds a number of nodes, then calls *getNodes()* on the graph and checks if each node is in the list.
 - *testGetNeighbors()* creates a test graph and adds nodes and edges, then calls *getNeighbors* on one of the nodes and confirms that the node's edges are included in the returned list.
 
+### Challenge 36 - breadthFirst
+
+Write a method to traverse a graph breadth-first.
+
+Location: [lib/src/main/java/datastructures/graph/Graph.java](lib/src/main/java/datastructures/graph/Graph.java)
+Tests: [lib/src/test/java/datastructures/graph/GraphTest.java](lib/src/test/java/datastructures/graph/GraphTest.java)
+
+#### Whiteboard
+
+![Challenge 36 Whiteboard](./lib/src/main/java/resources/challenge-36-whiteboard.png)
+
+#### Graph.java
+
+- Methods
+  - *breadthFirst(Node<T> startingNode)* first creates a holding queue and a hashset to track visited nodes. It then adds the provided starting node to the hashset and enqueues it. While the holding queue is not empty, the method dequeues the node at the front of the queue and calls *getNeighbors* on it. It iterates through the list of neighbors; for each one whose destination is not already in the "visited" list, the method enqueues that destination node and adds it to the list. When the node is empty, returns the hashSet of visited nodes. Time efficiency up to O(n^2) because has to iterate through each node and its list of neighbors, which could potentially include every other node in the graph. Space efficiency O(n) because the size of data created scales linearly with the size of the output.
+
+#### Testing
+
+- *testBreadthFirst* creates a graph with several nodes and edges, then calls *breadthFirst* on three different starting nodes. It then confirms: that calling *breadthFirst* twice on the same starting node produces the same result both times; that calling *breadthFirst* on two different starting nodes produces different results; and that the resulting hashSet contains every node in the graph.
+
 ### Challenge 37 - businessTrip
 
 Write a method that, given a route map (formatted as a graph) and an itinerary (formatted as an array of city names), determines whether the itinerary can be completed using only direct flights. If yes, returns the total cost of the trip; if no, returns null.
