@@ -2,6 +2,8 @@ package datastructures.graph;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GraphTest {
@@ -111,4 +113,37 @@ public class GraphTest {
     assertEquals(1160,Graph.businessTrip(routeMap,tripAll));
     assertNull(Graph.businessTrip(routeMap,tripNull));
   }
+
+  @Test
+  public void testBreadthFirst() throws Exception {
+    Graph<Integer> testGraph = new Graph<>(6);
+    Node<Integer> node1 = testGraph.addNode(1);
+    Node<Integer> node2 = testGraph.addNode(2);
+    Node<Integer> node3 = testGraph.addNode(3);
+    Node<Integer> node4 = testGraph.addNode(4);
+    Node<Integer> node5 = testGraph.addNode(5);
+    Node<Integer> node6 = testGraph.addNode(6);
+    testGraph.addEdge(node1,node2);
+    testGraph.addEdge(node1,node3);
+    testGraph.addEdge(node1,node4);
+    testGraph.addEdge(node2,node3);
+    testGraph.addEdge(node2,node5);
+    testGraph.addEdge(node2,node6);
+    testGraph.addEdge(node3,node2);
+    testGraph.addEdge(node3,node4);
+    testGraph.addEdge(node4,node1);
+    testGraph.addEdge(node4,node2);
+    testGraph.addEdge(node5,node6);
+
+    HashSet<Node<Integer>> startAt1 = testGraph.breadthFirst(node1);
+    HashSet<Node<Integer>> startAt1again = testGraph.breadthFirst(node1);
+    HashSet<Node<Integer>> startAt3 = testGraph.breadthFirst(node3);
+    HashSet<Node<Integer>> startAt5 = testGraph.breadthFirst(node5);
+
+    assertEquals(startAt1again.toString(),startAt1.toString());
+//    assertFalse(startAt3.toString().equals(startAt1.toString()));
+    assertTrue(startAt5.contains(node1) && startAt5.contains(node2) && startAt5.contains(node3) && startAt5.contains(node4) && startAt5.contains(node5) && startAt5.contains(node6));
+
+  }
+
 }
