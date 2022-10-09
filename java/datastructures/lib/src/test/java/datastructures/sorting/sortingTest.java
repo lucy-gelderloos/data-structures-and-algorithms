@@ -1,7 +1,5 @@
 package datastructures.sorting;
 
-import datastructures.sorting.insertion.InsertionSort;
-import datastructures.sorting.merge.MergeSort;
 import datastructures.sorting.quick.QuickSort;
 import org.junit.jupiter.api.Test;
 

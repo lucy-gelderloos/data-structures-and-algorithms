@@ -1,4 +1,4 @@
-package datastructures.sorting.merge;
+package datastructures.sorting;
 
 public class MergeSort {
 
