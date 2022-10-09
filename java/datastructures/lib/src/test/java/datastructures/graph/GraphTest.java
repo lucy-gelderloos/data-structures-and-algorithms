@@ -141,7 +141,9 @@ public class GraphTest {
     HashSet<Node<Integer>> startAt5 = testGraph.breadthFirst(node5);
 
     assertEquals(startAt1again.toString(),startAt1.toString());
-//    assertFalse(startAt3.toString().equals(startAt1.toString()));
+    assertNotEquals(startAt1.toString(),startAt3.toString());
+    assertFalse(startAt3.toString().equals(startAt1.toString()));
+
     assertTrue(startAt5.contains(node1) && startAt5.contains(node2) && startAt5.contains(node3) && startAt5.contains(node4) && startAt5.contains(node5) && startAt5.contains(node6));
 
   }

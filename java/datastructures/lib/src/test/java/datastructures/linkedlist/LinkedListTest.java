@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LinkedListTest
 {
     @Test void testCreateList() {
-      LinkedList<Integer> sut = new LinkedList<>();
+      LinkedList<Integer> sut = new LinkedList<Integer>();
       System.out.println(sut);
       assertNull(sut.getHead());
     }
@@ -22,21 +22,21 @@ public class LinkedListTest
     }
 
     @Test void testInsert() {
-      LinkedList<Integer> sut = new LinkedList<>();
+      LinkedList<Integer> sut = new LinkedList<Integer>();
       sut.insert(7);
       sut.insert(10);
       assertEquals("{10} -> {7} -> NULL",sut.toString());
     }
 
     @Test void testHeadPointsToNext() {
-      LinkedList<Integer> sut = new LinkedList<>();
+      LinkedList<Integer> sut = new LinkedList<Integer>();
       sut.insert(7);
       sut.insert(10);
       assertEquals(7,sut.getHead().getNext().getData());
     }
 
     @Test void testIncludes() {
-      LinkedList<Integer> sut = new LinkedList<>();
+      LinkedList<Integer> sut = new LinkedList<Integer>();
       sut.insert(7);
       sut.insert(10);
       assertTrue(sut.includes(7));
@@ -44,14 +44,14 @@ public class LinkedListTest
     }
 
     @Test void testToString() {
-      LinkedList<Integer> sut = new LinkedList<>();
+      LinkedList<Integer> sut = new LinkedList<Integer>();
       sut.insert(7);
       sut.insert(10);
       assertEquals("{10} -> {7} -> NULL",sut.toString());
     }
 
     @Test void testAppend() {
-      LinkedList<Integer> testList = new LinkedList<>();
+      LinkedList<Integer> testList = new LinkedList<Integer>();
       testList.insert(3);
       testList.insert(4);
       testList.insert(5);
@@ -63,7 +63,7 @@ public class LinkedListTest
     }
 
     @Test void testInsertBefore() throws Exception {
-      LinkedList<Integer> testList = new LinkedList<>();
+      LinkedList<Integer> testList = new LinkedList<Integer>();
       testList.insert(2);
       testList.insert(3);
       testList.insert(5);
@@ -78,7 +78,7 @@ public class LinkedListTest
     }
 
     @Test void testInsertAfter() throws Exception {
-      LinkedList<Integer> testList = new LinkedList<>();
+      LinkedList<Integer> testList = new LinkedList<Integer>();
       testList.insert(2);
       testList.insert(3);
       testList.insert(5);
@@ -92,7 +92,7 @@ public class LinkedListTest
     }
 
   @Test void testKthFromEnd() throws Exception {
-    LinkedList<Integer> testList = new LinkedList<>();
+    LinkedList<Integer> testList = new LinkedList<Integer>();
     testList.insert(2);
     testList.insert(3);
     testList.insert(4);
@@ -100,10 +100,10 @@ public class LinkedListTest
     testList.insert(6);
     testList.insert(7);
 
-    LinkedList<Integer> shortTestList = new LinkedList<>();
+    LinkedList<Integer> shortTestList = new LinkedList<Integer>();
     shortTestList.insert(3);
 
-    LinkedList<Integer> nullTestList = new LinkedList<>();
+    LinkedList<Integer> nullTestList = new LinkedList<Integer>();
     nullTestList.setHead(null);
 
     assertEquals(5,testList.kthFromEnd(3),"k of 3 should return 5");
