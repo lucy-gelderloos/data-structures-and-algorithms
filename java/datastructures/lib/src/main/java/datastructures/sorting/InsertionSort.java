@@ -1,4 +1,4 @@
-package datastructures.sorting.insertion;
+package datastructures.sorting;
 
 public class InsertionSort {
 
