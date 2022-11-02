@@ -1,7 +1,7 @@
 package datastructures.graph;
 
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
+import datastructures.linkedlist.Queue;
 
 public class Graph<T extends Comparable<? super T>> implements Comparable<Graph<T>> {
 
@@ -70,6 +70,24 @@ public class Graph<T extends Comparable<? super T>> implements Comparable<Graph<
     } else {
       return totalCost;
     }
+  }
+
+  public HashSet<Node<T>> breadthFirst(Node<T> startingNode) throws Exception {
+    HashSet<Node<T>> visitedList = new HashSet<>();
+    Queue<Node<T>> holdingQueue = new Queue<>();
+    visitedList.add(startingNode);
+    holdingQueue.enqueue(startingNode);
+    while(!holdingQueue.isEmpty()) {
+      Node<T> thisNode = holdingQueue.dequeue();
+      List<Edge<T>> edgeList = this.getNeighbors(thisNode);
+      for(Edge<T> edge : edgeList) {
+        if(!visitedList.contains(edge.getDestination())) {
+          visitedList.add(edge.getDestination());
+          holdingQueue.enqueue(edge.getDestination());
+        }
+      }
+    }
+    return visitedList;
   }
 
   @Override

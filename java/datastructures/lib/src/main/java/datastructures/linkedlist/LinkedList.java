@@ -23,6 +23,7 @@ public class LinkedList<T>
       contents += "{" + thisNode.getData() + "} -> ";
       thisNode = thisNode.getNext();
     }
+
     return contents + "NULL";
   }
 
@@ -269,7 +270,6 @@ public class LinkedList<T>
       return false;
     } else return true;
   }
-
   public Node<T> getHead() {
     return head;
   }
